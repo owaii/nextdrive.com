@@ -62,7 +62,6 @@ Kompleksowa aplikacja webowa do zarządzania jazdami w szkole jazdy.
 - Sprawdzanie limitów rezerwacji tygodniowych i maks. czasu do przodu
 - Automatyczne grupowanie jazd w blokach w jednym miejscu
 - Rezerwacje automatyczne vs manualne
-- Integracja z Google Maps API do obliczania czasu przejazdu między miejscami
 - Obsługa zdjęć samochodów (w Firebase Storage)
 
 ## 🗄️ Struktura bazy danych (przykład)
