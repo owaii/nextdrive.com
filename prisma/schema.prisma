@@ -1,0 +1,76 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  role         Role
+  contact      String?
+  lessons      Lesson[]  @relation("UserLessons")        
+  instructing  Lesson[]  @relation("InstructorLessons")  
+}
+
+model Car {
+  id           Int           @id @default(autoincrement())
+  name         String
+  photos       String[]
+  basePlace    String
+  transmission Transmission
+}
+
+model Lesson {
+  id           Int       @id @default(autoincrement())
+  studentId    Int
+  instructorId Int
+  type         LessonType
+  place        String
+  date         DateTime
+  hour         Int
+  status       LessonStatus
+  notes        String?
+
+  student      User      @relation("UserLessons", fields: [studentId], references: [id])
+  instructor   User      @relation("InstructorLessons", fields: [instructorId], references: [id])
+}
+
+model Availability {
+  id           Int      @id @default(autoincrement())
+  instructorId Int
+  day          String
+  hours        Int[]
+}
+
+model Settings {
+  id                  Int   @id @default(autoincrement())
+  maxLessonsPerWeek   Int
+  maxBookingAheadDays Int
+}
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  STUDENT
+}
+
+enum LessonType {
+  REGULAR
+  EXTRA
+}
+
+enum LessonStatus {
+  SCHEDULED
+  DONE
+  CANCELED
+}
+
+enum Transmission {
+  MANUAL
+  AUTOMATIC
+}
