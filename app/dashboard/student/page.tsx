@@ -1,38 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Calendar from "@/components/Calendar";
 import Image from "next/image";
-
-const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 export default function StudentDashboard() {
   const today = new Date();
-  const HourFrom = 12;
-  const HourTo = 24;
   const [viewMode, setViewMode] = useState("Week");
 
   const MAX_HOURS = 30;
   const CURRENT_HOURS = 7;
-
-  const dayOfWeek = today.getDay() === 0 ? 7 : today.getDay();
-  const startOfWeek = new Date(today);
-  startOfWeek.setDate(today.getDate() - (dayOfWeek - 1));
-
-  const daysOfWeek = [];
-  for (let i = 0; i < 7; i++) {
-    const day = new Date(startOfWeek);
-    day.setDate(startOfWeek.getDate() + i);
-    const dayName = weekDays[i];
-    const shortDay = dayName.slice(0, 3);
-    const dayNum = day.getDate();
-    const isToday = day.toDateString() === today.toDateString();
-    daysOfWeek.push({ shortDay, dayNum, isToday });
-  }
-
-  const hours = [];
-  for (let h = HourFrom; h <= HourTo; h++) {
-    if (h === 24) hours.push(`    `);
-    else hours.push(`${h}:00`);
-  }
 
   const progressPercentage = (CURRENT_HOURS / MAX_HOURS) * 100;
 
@@ -69,7 +45,7 @@ export default function StudentDashboard() {
         <div>
           <div id="UserBackgroundPic" className="w-full aspect-video bg-gray-300"></div>
           <div className="flex flex-col items-center mt-6">
-            <div id="ProfilePic" className="relative w-20 h-20 rounded-full overflow-hidden mt-[-20%]">
+            <div id="ProfilePic" className="relative w-[35%] aspect-square rounded-full overflow-hidden mt-[-30%]">
               <Image src="/profilePic.png" alt="Profile Pic" fill style={{ objectFit: "cover" }} />
             </div>
             <span className="mt-3 text-lg font-semibold text-gray-800">Jan Kowalski</span>
@@ -159,59 +135,9 @@ export default function StudentDashboard() {
           </div>
         </div>
 
-        <div id="MainContainer" className="w-full h-[90vh] flex items-center justify-center">
-          <div id="Calendar" className="w-[95%] h-[80vh] rounded-3xl shadow-2xl flex flex-col">
-            <div id="TopPanel" className="w-full h-[10vh] flex border-b">
-              <div id="TimeZoneValue" className="w-[5%] h-full flex items-end justify-end pr-1">
-                <span className="font-semibold">CET</span>
-              </div>
-              <div className="flex w-[95%] justify-between">
-                {daysOfWeek.map((day, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col items-center justify-end flex-1 border-l border-gray-300 relative"
-                  >
-                    <span className={`font-semibold ${day.isToday ? "text-blue-600" : ""}`}>
-                      {day.shortDay}
-                    </span>
-                    <span
-                      className={`${
-                        day.isToday
-                          ? "bg-blue-500 text-white rounded-full px-3 py-1"
-                          : "text-gray-600"
-                      }`}
-                    >
-                      {day.dayNum}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div id="MainCalendar" className="w-full h-[70vh] flex">
-              <div
-                id="CalendarHours"
-                className="w-[5%] h-full flex flex-col justify-end items-end pr-1 border-r border-gray-300"
-              >
-                {hours.map((hour, idx) => (
-                  <div
-                    key={idx}
-                    className="h-[calc(70vh/12)] flex items-end justify-end text-sm text-gray-700"
-                  >
-                    {hour}
-                  </div>
-                ))}
-              </div>
-              <div className="w-[95%] flex">
-                {daysOfWeek.map((day, idx) => (
-                  <div key={idx} className="flex-1 border-l border-gray-300 flex flex-col justify-end">
-                    {hours.map((_, hIdx) => (
-                      <div key={hIdx} className="h-[calc(70vh/12)] border-t border-gray-100"></div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div id="MainContainer" className="w-full h-[80vh] flex items-center justify-center">
+          <div id="Calendar" className="w-[95%] h-full rounded-3xl shadow-2xl flex flex-col">
+            <Calendar />
           </div>
         </div>
       </div>
