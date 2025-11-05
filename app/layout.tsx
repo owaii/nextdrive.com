@@ -1,4 +1,5 @@
-import "../styles/globals.css"
+import "../styles/globals.css";
+import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -19,15 +20,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: { background: "#333", color: "#fff" },
+            duration: 2500,
+          }}
+        />
       </body>
     </html>
   );

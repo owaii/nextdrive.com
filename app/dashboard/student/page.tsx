@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Calendar from "@/components/Calendar";
+import Calendar from "@/components/Calendar/Calendar";
 import Image from "next/image";
 
 export default function StudentDashboard() {
