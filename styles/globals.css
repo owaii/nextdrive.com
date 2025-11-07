@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --borderColor: #8d8f8e;
+  --dbBlockColor: #3B82F6;
+  --userBlockColor: #F97316;
+  --ngButtonColor: #EF4444;
+  --ngHoverButton: #DC2626;
+  --posButtonColor: #22C55E;
+  --posHoverButton: #16A34A;
+  --defaultAccentColor: #3B82F6;
+  --defaultAccentColorHover: #111eb8;
+  --antiAccentColor: #ffffff;
   --foreground: #171717;
 }
 

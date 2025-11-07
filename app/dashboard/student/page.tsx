@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Calendar from "@/components/Calendar";
+import Calendar from "@/components/Calendar/Calendar";
 import Image from "next/image";
 
 export default function StudentDashboard() {
@@ -56,7 +56,7 @@ export default function StudentDashboard() {
             <div className="w-full relative">
               <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                  className="h-3 bg-blue-500 rounded-full transition-all"
+                  className="h-3 bg-[var(--defaultAccentColor)] rounded-full transition-all"
                   style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
@@ -68,7 +68,7 @@ export default function StudentDashboard() {
                 className="absolute -bottom-2 flex flex-col items-center"
                 style={{ left: `${progressPercentage}%`, transform: "translateX(-50%)" }}
               >
-                <div className="w-1 h-3 bg-blue-500 rounded-full"></div>
+                <div className="w-1 h-3 bg-[var(--defaultAccentColor)] rounded-full"></div>
                 <span className="text-[10px] text-gray-700 mt-1">{CURRENT_HOURS}</span>
               </div>
             </div>
@@ -89,15 +89,15 @@ export default function StudentDashboard() {
                 <span className="text-xs text-gray-500 mb-1">
                   {order.time.toLocaleDateString()}
                 </span>
-                <span className="text-sm font-medium text-blue-500 mb-3">
+                <span className="text-sm font-medium text-[var(--defaultAccentColor)] mb-3">
                   {timeLeft[order.id] || "--:--:--"}
                 </span>
                 <div className="flex flex-col gap-2">
-                  <button className="px-3 py-1 bg-red-500 text-white text-xs rounded-lg hover:bg-red-600">
+                  <button className="px-3 py-1 bg-[var(--ngButtonColor)] text-white text-xs rounded-lg hover:bg-[var(--ngHoverButton)]">
                     Usuń
                   </button>
-                  <button className="px-3 py-1 bg-green-500 text-white text-xs rounded-lg hover:bg-green-600">
-                    Zamów ponownie
+                  <button className="px-3 py-1 bg-[var(--posButtonColor)] text-white text-xs rounded-lg hover:bg-[var(--posHoverButton)]">
+                    Edytuj
                   </button>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function StudentDashboard() {
         </div>
 
         <div className="flex justify-center mb-8">
-          <button className="px-6 py-2 bg-red-500 text-white rounded-xl shadow hover:bg-red-600 transition">
+          <button className="px-6 py-2 bg-[var(--ngButtonColor)] text-white rounded-xl shadow hover:bg-[var(--ngHoverButton)] transition">
             Wyloguj
           </button>
         </div>
