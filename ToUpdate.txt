@@ -1,0 +1,19 @@
+Calendar:
+    -> Keep half hour difference between bolcks with different place Var. 
+        (Make Sure it works for both dragging into the half hour zone, when dragged to stick the other block, Automaticly changes position to keep the distance and displays a
+        toast alert on why it happened. For Adding a block it should do the same)
+    -> Change adding block handler. So far you can add a block alongside a block fetched from database.
+    -> Change month nameing for Polish.
+    -> Add a posibility to enter a day scheme when clicking on a number both in week and month schemes. Also add a poitner cursor when on the number
+    -> Dragging a block into false location proccs a toast alert. It happens on dragging through the boundry without dropping the block. It means you can procc the alert infinite amount of times. (I guess you need to change the logic to be in handleEventAllow and not in handleEventDrag)
+    -> Make only one toast alert possible at a time. I means when the next alert is procc'd 
+    -> Add some basic script that will guide users into a more correct hours, it'll avoid 1 hour braekes between each drive etc.
+    -> When clicking on a block, display icons to edit, delete, or display info.
+    -> Maybe change the layout of a header. 
+        Today button one the left
+        Title in the middle among the right and left arrow,
+        Month, week, day maybe should have a comboBox style
+
+General:
+    -> Do a better job with distributing width and hegiht etc To make it easier to change
+    -> Maybe make a .ts file or smth, so you could dinamicly change the img sources and nt by going into tsx files searching trhough 200 line for a src

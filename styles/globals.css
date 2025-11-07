@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --backgroundMain: #ffffff;
+  --backgroundAFir: #E5E7EB;
+  --backgroundASec: #CBD5E1;
+  --backgroundAThr: #ffffff;
+
   --borderColor: #8d8f8e;
   --dbBlockColor: #3B82F6;
   --userBlockColor: #F97316;
@@ -13,6 +17,19 @@
   --defaultAccentColorHover: #111eb8;
   --antiAccentColor: #ffffff;
   --foreground: #171717;
+
+  /*
+  ---------------------
+    Student Dashboard
+  ---------------------
+  */
+  --ProfileConHeight: 25vh;
+  --MainConHeight: calc(100vh - (var(--ProfileConHeight)));
+  --MainSideBarWidth: 15%;
+  --MainSideBarLWidth: var(--MainSideBarWidth);
+  --MainSideBarRWidth: var(--MainSideBarWidth);
+  --MainConWidth: calc(100% - var(--MainSideBarLWidth) - var(--MainSideBarRWidth));
+  --ProfileMainConWidth: var(--MainConWidth);
 }
 
 @theme inline {
@@ -40,3 +57,4 @@ body, html {
   padding: 0;
   height: 100%;
 }
+
