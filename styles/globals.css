@@ -58,3 +58,101 @@ body, html {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.HomePageLoginButton {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.HomePageLoginButton:hover,
+.HomePageLoginButton:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.HomePageLoginButton:hover {
+  transform: translateY(-1px);
+}
+
+.HomePageLoginButton:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+.HeaderSpan {
+  color: var(--backgroundMain);
+}
+
+.HeaderSpan {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.HeaderSpan::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.HeaderSpan:hover::after {
+  width: 100%;
+}
+
+.LoginFormBackground {
+  background: hsla(203, 92%, 76%, 1);
+  background: linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8CD0FA", endColorstr="#B2E5F8", GradientType=1 );
+}
+
+.LoginButton {
+  background: linear-gradient(180deg, #fff 0%, #000 0%, #4a4a4a 100%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition: background-position 1s ease-in-out;
+}
+
+.LoginButton:hover {
+  background-position: bottom;
+}
+
+
+
+

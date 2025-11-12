@@ -23,15 +23,14 @@ export default function UserDashboard() {
 
 function ProfileCon() {
   return (
-    <div id="MainProfileCon" className="w-(--ProfileMainConWidth) h-full">
-      <div id="ImageCon" className="w-full aspect-5/1 relative">
-        <Image
+    <div id="MainProfileCon" className="w-(--ProfileMainConWidth) h-full relative">
+      <Image
           src="/ProfileBackground.png"
           alt="Banner"
           fill
           className="obejct-cover object-center"
         />
-
+      <div id="ImageCon" className="w-full h-full absolute inset-0">
         <div id="ProfileCon" className="absolute inset-0 flex flex-nowrap">
         <div className="profile-info w-[40%] h-full flex items-center justify-center">
           <div className="profile-banner w-full aspect-video p-5">

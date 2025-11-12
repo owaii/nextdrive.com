@@ -9,11 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fullcalendar/core": "^6.1.19",
     "@fullcalendar/daygrid": "^6.1.19",
     "@fullcalendar/interaction": "^6.1.19",
     "@fullcalendar/react": "^6.1.19",
     "@fullcalendar/timegrid": "^6.1.19",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
     "@orpc/client": "^1.10.2",
     "@orpc/server": "^1.10.2",
     "@prisma/client": "^6.18.0",
