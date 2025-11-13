@@ -1,30 +1,47 @@
 import Link from "next/link";
 import React from "react";
-import GoogleIcon from '@mui/icons-material/Google'
-import { Span } from "next/dist/trace";
+import GoogleIcon from "@mui/icons-material/Google";
 
-export default function LoginForm() {
+export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; goToSignup: () => void; }) {
   return (
-    <div className="LoginFormBackground WebWindow w-full h-full flex items-center justify-center">
-      <div className="MainLoginWindow w-[30%] h-[55%] flex flex-col shadow-[0_0_34px_2px_rgba(66,68,90,1)] p-4 rounded-4xl">
-        <div className="w-full flex flex-nowrap justify-between">
-          <Link href={"#home"}>{"< Home"}</Link>
-          <Link href={"#signup"}>{"Registration >"}</Link>
+    <div className="LoginFormBackground w-screen h-screen flex items-center justify-center">
+      <div className="MainLoginWindow w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%] xl:w-[30%] 2xl:w-[25%] h-auto min-h-[400px] flex flex-col p-6 py-10 rounded-2xl transition-all cursor-pointer bg-gradient-to-b from-[#f7fcff] via-[#e9f7fc] to-[#d9f1fa] border border-cyan-200 border-t-white shadow-[0_0_34px_2px_rgba(66,68,90,0.15)] hover:shadow-[0_0_40px_4px_rgba(66,68,90,0.25)] transition-shadow duration-300">
+        
+        <div className="w-full flex justify-between text-sm mb-4">
+          <Link
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              goHome();
+            }}
+            className="hover:underline cursor-pointer"
+          >
+            {"< Strona Główna"}
+          </Link>
+
+          <Link
+            href="#signup"
+            onClick={(e) => {
+              e.preventDefault();
+              goToSignup();
+            }}
+            className="hover:underline cursor-pointer"
+          >
+            {"Rejestracja >"}
+          </Link>
         </div>
-        <div className="InputFieldsCon w-full flex flex-col px-10">
-          <div className="relative mb-2 text-center py-4">
-            <span className="text-4xl text-(--foreground) font-bold ">Logowanie</span>
-          </div>
 
-          <div className="relative mb-2">
+        <div className="text-center py-4">
+          <span className="text-3xl md:text-4xl text-foreground) font-bold">
+            Logowanie
+          </span>
+        </div>
 
-          </div>
-
-          <div className="relative mb-2">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+        <div className="InputFieldsCon w-full flex flex-col px-4 sm:px-10">
+          <div className="relative mb-4">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
-                className="w-4 h-4 text-foreground"
-                aria-hidden="true"
+                className="w-5 h-5 text-foreground)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 16"
@@ -36,16 +53,14 @@ export default function LoginForm() {
             <input
               type="email"
               id="email"
-              className="bg-(--backgroundAFir) border-(--borderColor) text-(--foreground) text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
-              placeholder="Email albo Username"
+              className="bg-(--backgroundMain) border border-(--borderColor) text-foreground) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
+              placeholder="Email albo Nazwa Użytkownika"
             />
           </div>
-
-          <div className="relative mb-2">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+          <div className="relative mb-4">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
-                className="w-4 h-4 text-foreground"
-                aria-hidden="true"
+                className="w-5 h-5 text-foreground)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -56,34 +71,29 @@ export default function LoginForm() {
             <input
               type="password"
               id="password"
-              className="bg-(--backgroundAFir) border-(--borderColor) text-foreground text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
-              placeholder="Password"
+              className="bg-(--backgroundMain) border border-(--borderColor) text-foreground) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
+              placeholder="Hasło"
             />
           </div>
-        
-          <div className="relative flex justify-end items-center">
-            <Link 
-              href={"#ForgotPassword"}
-              className="text-sm "
-            >Zapomniałeś Hasła?</Link>
+
+          <div className="flex justify-end mb-4">
+            <Link href={"#ForgotPassword"} className="text-sm hover:underline">
+              Zapomniałeś Hasła?
+            </Link>
           </div>
 
-          <div className="SignInButton w-full flex items-center justify-center py-2 relative">
-            <button className="LoginButton w-full p-2 rounded-4xl text-(--backgroundMain) cursor-pointer">
+          <div className="SignInButton w-full flex items-center justify-center py-2">
+            <button className="LoginButton w-full p-2 rounded-xl text-(--backgroundMain) bg-foreground) hover:opacity-90 transition  cursor-pointer">
               Zaloguj
             </button>
           </div>
 
-          <span className="relative mb-2 py-2 w-full text-center text-(--foreground)">
-            or
-          </span>
+          <span className="text-center text-foreground) my-4">albo</span>
 
-          <div className="relative">
-            <button className="w-full border-2 bg-(--backgroundMain) border-(--borderColor) flex justify-center items-center flex-nowrap py-1 gap-4 cursor-pointer">
-              <span>Zaloguj się za pomocą Google</span>
-              <span><GoogleIcon/></span>
-            </button>
-          </div>
+          <button className="w-full border-2 bg-(--backgroundMain) border-(--borderColor) flex justify-center items-center py-2 gap-3 rounded-xl hover:bg-(--backgroundAFirHover) transition cursor-pointer">
+            <GoogleIcon />
+            <span>Zaloguj się za pomocą Google</span>
+          </button>
         </div>
       </div>
     </div>

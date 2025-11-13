@@ -1,5 +1,6 @@
 "use client"
 import LoginForm from "@/components/forms/LoginForm";
+import SignupForm from "@/components/forms/RegisterForm";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -9,16 +10,18 @@ export default function Home() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === "#login") setView("login");
-      if (window.location.hash === "#signup") setView("signup");
-      else setView("home");
-    };
+    const hash = window.location.hash;
+    if (hash === "#login") setView("login");
+    else if (hash === "#signup") setView("signup");
+    else setView("home");
+  };
 
-    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
+    handleHashChange();
 
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
+
 
   const goToLogin = () => {
     window.location.hash = "login";
@@ -60,9 +63,8 @@ export default function Home() {
       </div>
     )}
 
-    {view == "login" && (
-      <LoginForm />
-    )}
+    {view === "login" && <LoginForm goHome={goHome} goToSignup={goToSignup} />}
+    {view === "signup" && <SignupForm goHome={goHome} goToLogin={goToLogin} />}
     </>
   );
 }
