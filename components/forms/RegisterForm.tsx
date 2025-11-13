@@ -47,7 +47,7 @@ export default function SignupForm({ goHome, goToLogin }: { goHome: () => void; 
 
   return (
     <div className="LoginFormBackground w-screen h-screen flex items-center justify-center">
-      <div className="MainLoginWindow w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%] xl:w-[30%] 2xl:w-[25%] h-auto min-h-[400px] flex flex-col p-6 py-10 rounded-2xl transition-all cursor-pointer bg-gradient-to-b from-[#f7fcff] via-[#e9f7fc] to-[#d9f1fa] border border-cyan-200 border-t-white shadow-[0_0_34px_2px_rgba(66,68,90,0.15)] hover:shadow-[0_0_40px_4px_rgba(66,68,90,0.25)] transition-shadow duration-300">
+      <div className="MainRegisterWindow w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%] h-auto min-h-[400px] flex flex-col p-6 py-10 rounded-2xl transition-all cursor-pointer bg-gradient-to-b from-[#f7fcff] via-[#e9f7fc] to-[#d9f1fa] border border-cyan-200 border-t-white shadow-[0_0_34px_2px_rgba(66,68,90,0.15)] hover:shadow-[0_0_40px_4px_rgba(66,68,90,0.25)] transition-shadow duration-300">
         <div className="w-full flex justify-between text-sm mb-4">
           <Link
             href="#home"
