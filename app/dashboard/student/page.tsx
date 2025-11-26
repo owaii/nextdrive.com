@@ -14,7 +14,7 @@ export default function UserDashboard() {
             <section className="StudentDashboardBlock h-full flex-1 bg-[#1A1C1E] rounded-xl"/>
             {/* Block 2 - Progress Bar */}
             <section className="StudentDashboardBlock h-full flex-2 flex flex-col">
-              <header className="w-full bg-[#1A1C1E] rounded-t-xl p-4 flex items-center gap-3"></header>
+              <header className="flex-1 w-full bg-[#1A1C1E] rounded-t-xl"></header>
               <div className="flex-3 w-full bg-[#2B2D31] rounded-b-xl"></div>
             </section>
           </section>
@@ -46,7 +46,7 @@ export default function UserDashboard() {
             <section className="StudentDashboardBlock h-full flex-1 bg-[#1A1C1E] rounded-xl"/>
             {/* Block 2 - Next Drive Countdown  */}
             <section className="StudentDashboardBlock h-full flex-2 flex flex-col">
-              <header className="w-full bg-[#1A1C1E] rounded-t-xl p-4 flex items-center gap-3"></header>
+              <header className="flex-1 w-full bg-[#1A1C1E] rounded-t-xl"></header>
               <div className="flex-3 w-full bg-[#2B2D31] rounded-b-xl"></div>
             </section>
           </section>
