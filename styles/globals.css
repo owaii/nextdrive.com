@@ -153,6 +153,13 @@ html {
   background-position: bottom;
 }
 
+.StudentDashboardBlock {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 300ms, box-shadow 300ms;
+}
 
+.StudentDashboardBlock:hover {
+  transform: scale(1.01);
+}
 
 
