@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --backgroundMain: #ffffff;
-  --backgroundAFir: #E5E7EB;
-  --backgroundASec: #CBD5E1;
-  --backgroundAThr: #ffffff;
+  --White: #FFFFFF;
+  --WarmWhite: #ececec;
+  --SoftGray: #F1F0EE;
+  --MediumGray: #D8D6D2;
+  --Black: #111111;
+  --WarmBlack: #2A2725;
+
 
   --borderColor: #8d8f8e;
   --dbBlockColor: #3B82F6;
