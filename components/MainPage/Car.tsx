@@ -24,7 +24,7 @@ function CarCard({ car_id, with_buttons, selectable, selected, onSelect }: CarCa
       className={`
         w-120 flex flex-col rounded-3xl overflow-hidden shadow-md 
         transition-all duration-300 cursor-pointer
-        hover:shadow-xl hover:shadow-black/30 hover:scale-105
+        hover:shadow-xl hover:shadow-black/30 hover:scale-102
         ${selectable && selected ? "ring-4 ring-blue-500 scale-105" : ""}
       `}
     >
@@ -44,6 +44,9 @@ function CarCard({ car_id, with_buttons, selectable, selected, onSelect }: CarCa
           <section className="w-full p-5 flex justify-center items-center gap-5">
             <button className="text-amber-50 font-semibold bg-black px-4 py-2 rounded-md transition hover:scale-102">
               Info
+            </button>
+            <button className="text-amber-50 font-semibold bg-black px-4 py-2 rounded-md transition hover:scale-102">
+              Umów Jazdy
             </button>
           </section>
         )}

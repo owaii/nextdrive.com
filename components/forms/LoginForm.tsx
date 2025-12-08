@@ -32,7 +32,7 @@ export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; 
         </div>
 
         <div className="text-center py-4">
-          <span className="text-3xl md:text-4xl text-foreground) font-bold">
+          <span className="text-3xl md:text-4xl text-(--Black) font-bold">
             Logowanie
           </span>
         </div>
@@ -41,7 +41,7 @@ export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; 
           <div className="relative mb-4">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
-                className="w-5 h-5 text-foreground)"
+                className="w-5 h-5 text-(--Black)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 16"
@@ -53,14 +53,14 @@ export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; 
             <input
               type="email"
               id="email"
-              className="bg-(--backgroundMain) border border-(--borderColor) text-foreground) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
+              className="bg-(--White) border border-(--White) text-(--Black) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
               placeholder="Email albo Nazwa Użytkownika"
             />
           </div>
           <div className="relative mb-4">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
-                className="w-5 h-5 text-foreground)"
+                className="w-5 h-5 text-(--Black)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -71,7 +71,7 @@ export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; 
             <input
               type="password"
               id="password"
-              className="bg-(--backgroundMain) border border-(--borderColor) text-foreground) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
+              className="bg-(--White) border border-(--White) text-(--Black) text-sm rounded-lg focus:ring-(--defaultAccentColor) focus:border-(--defaultAccentColor) block w-full pl-10 p-2.5"
               placeholder="Hasło"
             />
           </div>
@@ -83,14 +83,14 @@ export default function LoginForm({ goHome, goToSignup }: { goHome: () => void; 
           </div>
 
           <div className="SignInButton w-full flex items-center justify-center py-2">
-            <button className="LoginButton w-full p-2 rounded-xl text-(--backgroundMain) bg-foreground) hover:opacity-90 transition  cursor-pointer">
+            <button className="LoginButton w-full p-2 rounded-xl text-(--WarmWhite) bg-(--Black) hover:opacity-90 transition  cursor-pointer">
               Zaloguj
             </button>
           </div>
 
-          <span className="text-center text-foreground) my-4">albo</span>
+          <span className="text-center text-(--Black) my-4">albo</span>
 
-          <button className="w-full border-2 bg-(--backgroundMain) border-(--borderColor) flex justify-center items-center py-2 gap-3 rounded-xl hover:bg-(--backgroundAFirHover) transition cursor-pointer">
+          <button className="w-full border-2 bg-(--White) border-(--White) flex justify-center items-center py-2 gap-3 rounded-xl hover:opacity-90 transition cursor-pointer">
             <GoogleIcon />
             <span>Zaloguj się za pomocą Google</span>
           </button>

@@ -87,8 +87,8 @@ export default function Home() {
                 <Link href="/#CarChoice">
                   <button className="text-(--White) font-semibold bg-(--Black) bg-opacity-50 border border-(--White) hover:cursor-pointer px-4 py-2 rounded-md mr-4 transition transform hover:scale-105">Sprawdź ofertę</button>
                 </Link>
-                <Link href={"/#SiteInfo"}>
-                  <button className="text-(--TextBlack) font-semibold bg-(--WarmWhite) border border-(--Black) hover:cursor-pointer px-4 py-2 rounded-md mr-4 transition transform hover:scale-105">Dowiedz się więcej</button>
+                <Link href={"/#Contact"}>
+                  <button className="text-(--TextBlack) font-semibold bg-(--WarmWhite) border border-(--Black) hover:cursor-pointer px-4 py-2 rounded-md mr-4 transition transform hover:scale-105">Kontakt</button>
                 </Link>
               </section>
             </section>
@@ -107,12 +107,12 @@ export default function Home() {
           <CarHero with_buttons={true} selectable={false}/>
 
           <section className="w-full flex justify-center items-center mt-20">
-            <button onClick={() => setIsOpen(true)} className="text-(--White) text-2xl font-semibold bg-(--Black) hover:cursor-pointer px-6 py-3 rounded-md transition transform hover:scale-107">Zobacz nas cennik</button>
+            <button onClick={() => setIsOpen(true)} className="text-(--White) text-2xl font-semibold bg-(--Black) hover:cursor-pointer px-6 py-3 rounded-md transition transform hover:scale-107">Zobacz nasz cennik</button>
           </section> 
 
           {/* Contact Info */}
-          <section className="w-full flex justify-center items-center mt-30">
-            <section className="flex p-10 shadow-md hover:shadow-xl hover:shadow-black/30 hover:scale-102 transition-all duration-300 cursor-pointer rounded-3xl">
+          <section id="Contact" className="w-full flex justify-center items-center mt-30">
+            <section className="flex p-10 shadow-md transition-all duration-300 cursor-pointer rounded-3xl">
               {/* Block 1 */}
               <div className="w-1/2 justify-center items-center">
                 <span className="text-7xl font-extrabold">Skontaktuj się z nami</span>
@@ -147,6 +147,185 @@ export default function Home() {
                   </div>
                 </section>
               </section>
+            </section>
+          </section>
+
+          {/* Stats Page */}
+          <section className="w-full my-30 flex flex-col justify-center items-center gap-15">
+            <div className="w-2/5 h-1 rounded-2xl bg-(--WarmBlack)"></div>
+            <section className="h-full flex gap-20">
+              <section className="w-70 h-70 flex flex-col items-center justify-center">
+                <div className="w-20 aspect-square relative">
+                  <Image 
+                    src={"/processing.png"}
+                    alt="Reading Icon"
+                    fill
+                  />
+                </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <span className="text-7xl text-(--Black) font-extrabold">5+</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <span className="text-l text-(--Black) font-Light">Lata na rynku</span>
+                </div>
+              </section>
+              <section className="w-70 h-70 flex flex-col items-center justify-center">
+                <div className="w-20 aspect-square relative">
+                  <Image 
+                    src={"/studentIcon.png"}
+                    alt="Students Number"
+                    fill
+                  />
+                </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <span className="text-7xl text-(--Black) font-extrabold">35</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <span className="text-l text-(--Black) font-Light">Liczba przeszkolonych studentów</span>
+                </div>
+              </section>
+              <section className="w-70 h-70 flex flex-col items-center justify-center">
+                <div className="w-20 aspect-square relative">
+                  <Image 
+                    src={"/percent.png"}
+                    alt="Percent Number"
+                    fill
+                  />
+                </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <span className="text-7xl text-(--Black) font-extrabold">80</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <span className="text-l text-(--Black) font-Light">Zdawalność</span>
+                </div>
+              </section>
+            </section>
+            <div className="w-2/5 h-1 rounded-2xl bg-(--WarmBlack)"></div>
+          </section>
+
+          {/* Jak to działa */}
+          <section className="w-full my-20 flex flex-col items-center">
+            <div className="flex justify-center items-center p-10 m-10">
+              <span className="text-7xl text-(--Black) font-extrabold">Jak to działa?</span>
+            </div>
+            <section className="w-1/2 flex flex-col gap-10">
+              {/* Block 1 */}
+              <section className="p-5 h-80 flex justify-center">
+                <div className="flex-1 aspect-square p-5 relative flex justify-center items-center">
+                  <Image 
+                    src="/FirstStep.png"
+                    alt="First Step Icon"
+                    fill
+                    className="object-scale-down"
+                  />
+                </div>
+                <section className="flex flex-1 flex-col justify-center">
+                  <div className="flex-1 flex items-center justify-center p-5">
+                    <span className="text-3xl text-(--Black) font-extrabold">Zapoznajesz się z naszą ofertą</span>
+                  </div>
+                  <div className="flex-2 flex justify-center items-start mt-10">
+                    <span className="text-l font-light text-(--Black) px-10">
+                      Przeglądasz dostępne usługi i wybierasz te, które najlepiej odpowiadają Twoim potrzebom, aby rozpocząć współpracę w najbardziej wygodny i przejrzysty sposób.
+                    </span>
+                  </div>
+                </section>
+              </section>
+              {/* Block 2 */}
+              <section className="p-5 h-80 flex justify-center">
+                <section className="flex flex-1 flex-col justify-center">
+                  <div className="flex-1 flex items-center justify-center p-5">
+                    <span className="text-3xl text-(--Black) font-extrabold">Zakładasz Konto</span>
+                  </div>
+                  <div className="flex-2 flex justify-center items-start mt-10">
+                    <span className="text-l font-light text-(--Black) px-10">
+                      Tworzysz własny profil, który umożliwia Ci wygodne zarządzanie zleceniami, dostęp do wszystkich funkcji oraz szybki kontakt z naszym zespołem.
+                    </span>
+                  </div>
+                </section>
+                <div className="flex-1 aspect-square p-5 relative flex justify-center items-center">
+                  <Image 
+                    src="/SecondStep.png"
+                    alt="Second Step Icon"
+                    fill
+                    className="object-scale-down"
+                  />
+                </div>
+              </section>
+              {/* Block 3 */}
+              <section className="p-5 h-80 flex justify-center">
+                <div className="flex-1 aspect-square p-5 relative flex justify-center items-center">
+                  <Image 
+                    src="/ThirdStep.png"
+                    alt="Thrid Step Icon"
+                    fill
+                    className="object-scale-down"
+                  />
+                </div>
+                <section className="flex flex-1 flex-col justify-center">
+                  <div className="flex-1 flex items-center justify-center p-5">
+                    <span className="text-3xl text-(--Black) font-extrabold">Cieszysz się niezawodnością i profesjonalnym podejściem</span>
+                  </div>
+                  <div className="flex-2 flex justify-center items-start mt-10">
+                    <span className="text-l font-light text-(--Black) px-10">
+                      Od tego momentu możesz liczyć na pełne wsparcie, terminową realizację oraz jakość, która pozwala skupić się na tym, co naprawdę ważne — a resztą zajmujemy się my.
+                    </span>
+                  </div>
+                </section>
+              </section>
+            </section>
+          </section>
+
+          {/* Specjalna zniżka */}
+          <section className="w-full my-20 flex flex-col items-center justify-center gap-5 bg-(--GrayWhite) py-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),_0_4px_6px_-1px_rgba(0,0,0,0.1)]">
+            <span className="text-4xl text-(--Black) font-bold">Oferta Limitowana: 
+              <span className="text-red-600 font-extrabold"> 15% Zniżki </span>
+              dla nowych użytkowników
+            </span>
+            <span className="text-l text-(--Black) font-semibold ">Oferta obowowiązuje tylko w dniach 10.10.2024 - 31.12.2025</span> 
+            <button className="text-amber-50 font-semibold bg-black px-4 py-2 rounded-md transition hover:scale-102 cursor-pointer">Odbierz ofertę</button>
+          </section>
+
+          {/* Oceny użytkowników */}
+          <section className="w-full my-20 flex flex-col items-center">
+            <div className="py-20 flex justify-center items-center">
+              <span className="text-6xl md:text-7xl text-(--Black) font-extrabold text-center">
+                Jak oceniają nas inni?
+              </span>
+            </div>
+
+            <section className="w-4/5 grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Card 1 */}
+              <div className="p-8 bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex flex-col gap-4">
+                <p className="text-(--Black) text-lg font-light leading-relaxed">
+                  “Świetna szkoła jazd doszkalających — instruktorzy cierpliwi, wszystko tłumaczą jasno i spokojnie. Dzięki nim w końcu poczułem się pewnie za kierownicą. Polecam każdemu, kto chce naprawdę poprawić swoje umiejętności.”
+                </p>
+                <span className="text-xl text-(--Black)">— Jan K.</span>
+                <span className="text-2xl text-yellow-500">★★★★★</span>
+              </div>
+              {/* Card 1 */}
+              <div className="p-8 bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex flex-col gap-4">
+                <p className="text-(--Black) text-lg font-light leading-relaxed">
+                  “Bardzo profesjonalne podejście. Instruktor dostosował zajęcia do moich potrzeb, przez co szybko wyeliminowałem błędy. Zdecydowanie warto!”
+                </p>
+                <span className="text-xl text-(--Black)">— Marta W.</span>
+                <span className="text-2xl text-yellow-500">★★★★★</span>
+              </div>
+              {/* Card 1 */}
+              <div className="p-8 bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex flex-col gap-4">
+                <p className="text-(--Black) text-lg font-light leading-relaxed">
+                  “Bardzo dobre warunki, przyjazna atmosfera i świetne tempo pracy. Dzięki dodatkowym jazdom czuję się znacznie pewniej na ulicy.”
+                </p>
+                <span className="text-xl text-(--Black)">— Tomasz R.</span>
+                <span className="text-2xl text-yellow-500">★★★★★</span>
+              </div>
+              {/* Card 1 */}
+              <div className="p-8 bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex flex-col gap-4">
+                <p className="text-(--Black) text-lg font-light leading-relaxed">
+                  “Instruktorzy naprawdę wiedzą, jak przygotować do jazdy w realnych warunkach. Ogromna cierpliwość i świetne podejście.”
+                </p>
+                <span className="text-xl text-(--Black)">— Karolina Z.</span>
+                <span className="text-2xl text-yellow-500">★★★★★</span>
+              </div>
             </section>
           </section>
         </section>

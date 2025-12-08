@@ -2,7 +2,8 @@
 
 :root {
   --White: #FFFFFF;
-  --WarmWhite: #ececec;
+  --WarmWhite: #FFFCF7;
+  --GrayWhite: #FDFBF5;
   --SoftGray: #F1F0EE;
   --MediumGray: #D8D6D2;
   --Black: #111111;
@@ -20,19 +21,6 @@
   --defaultAccentColorHover: #111eb8;
   --antiAccentColor: #ffffff;
   --foreground: #171717;
-
-  /*
-  ---------------------
-    Student Dashboard
-  ---------------------
-  */
-  --ProfileConHeight: 25vh;
-  --MainConHeight: calc(100vh - (var(--ProfileConHeight)));
-  --MainSideBarWidth: 15%;
-  --MainSideBarLWidth: var(--MainSideBarWidth);
-  --MainSideBarRWidth: var(--MainSideBarWidth);
-  --MainConWidth: calc(100% - var(--MainSideBarLWidth) - var(--MainSideBarRWidth));
-  --ProfileMainConWidth: var(--MainConWidth);
 }
 
 @theme inline {
