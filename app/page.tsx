@@ -113,26 +113,45 @@ export default function Home() {
         <div id="smooth-content" className="flex flex-col w-full overflow-hidden">
           {/* Entry Page */}
           <Entry 
-            goToLogin={goToLogin} 
-            goToSignup={goToSignup} 
-            smoothScroll={scrollToSection} 
+            goToLogin={goToLogin}
+            goToSignup={goToSignup}
+            smoothScroll={scrollToSection}
             openInfoPopup={() => setIsEntryPopupOpen(true)}
           />
 
           {/* Main */}
           <section className="main w-full flex flex-col items-center">
             {/* Upper Section */}
-            <section className="w-full flex flex-col items-center bg-(--WarmWhite) py-30">
-              <section className="w-full xl:w-2/5 2xl:w-4/5 xl:h-15 2xl:h-20 flex">
+            <section className="
+              w-full flex flex-col items-center 
+              bg-[var(--WarmWhite)] 
+              lg:py-10 
+              2xl:py-30
+            ">
+              <section className="
+                w-[98%] h-20 
+                sm:w-[95%] 
+                md:w-[70%] 
+                lg:w-[85%]
+                xl:w-4/5 xl:h-15 
+                2xl:w-4/5
+                flex">
                 <div className="flex-3 h-full flex justify-start items-center">
-                  <span className="text-2xl xl:text-4xl 2xl:text-5xl font-extrabold">Poznaj naszą flotę</span>
+                  <span className="
+                  text-2xl 
+                  sm:text-xl
+                  
+                  xl:text-4xl 
+                  2xl:text-5xl 
+                  font-extrabold"
+                > Poznaj naszą flotę</span>
                 </div>
                 <div className="flex-2 h-full flex justify-end items-center">
                   <button 
                     onClick={() => setIsOpenPrice(true)} 
                     className="
-                      text-(--White) text-sm xl:text-xl 2xl:text-2xl font-semibold 
-                      bg-(--Black) hover:cursor-pointer px-6 py-3 rounded-md 
+                      text-[var(--White)] text-sm xl:text-xl 2xl:text-2xl font-semibold 
+                      bg-[var(--Black)] hover:cursor-pointer py-2 px-2 xl:px-6 xl:py-3 rounded-md 
                       transition transform hover:scale-107
                     "> Zobacz cennik
                     </button>
@@ -148,7 +167,7 @@ export default function Home() {
             {/* Jak to działa */}
             <HowItWorksHero />
             
-            <section className="w-full flex flex-col items-center bg-(--WarmWhite)">
+            <section className="w-full flex flex-col items-center bg-[var(--WarmWhite)]">
               {/* Contact Info */}
               <Contact />
             </section>

@@ -17,7 +17,7 @@ export default function Contact() {
 
   return (
     <section id="Contact" className="py-20 w-full flex flex-col justify-center items-center">
-      <section className="w-full xl:w-3/5 2xl:w-3/5 flex py-10 px-2 2xl:p-10 shadow-md cursor-pointer 2xl:rounded-3xl bg-(--White) text-(--Black)">
+      <section className="w-full xl:w-3/5 2xl:w-3/5 flex py-10 px-2 2xl:p-10 shadow-md cursor-pointer md:rounded-3xl bg-(--White) text-(--Black)">
         <section className="w-full h-full flex xl:gap-2">  
           {/* Block 1 */}
           <div className="flex-1">

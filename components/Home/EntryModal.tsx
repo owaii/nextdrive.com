@@ -18,23 +18,23 @@ function Block({ title, amount, price, regular_price } : FileProps) {
   const tag_reduce = Math.floor(100 - ((price / regular_price) * 100));
 
   return (
-    <section className="w-35 h-45 2xl:w-70 2xl:h-70 flex flex-col bg-(--Black)/95 hover:scale-102 cursor-pointer duration-500">
+    <section className="w-35 h-45 md:w-55 md:h-65 2xl:w-70 2xl:h-70 flex flex-col bg-(--Black)/95 hover:scale-102 cursor-pointer duration-500">
       {/* Main Part */}
       <section className="w-full flex-1 flex flex-col">
         {/* Title */}
-        <div className="w-full h-4 2xl:h-5 flex items-center justify-center">
-          <span className="text-xs 2xl:text-sm text-(--White) font-extralight">{ title }</span>
+        <div className="w-full h-4 md:h-5 flex items-center justify-center">
+          <span className="text-xs md:text-sm text-(--White) font-extralight">{ title }</span>
         </div>
         {/* Main */}
-        <section className="w-full flex-1 flex flex-col items-center justify-center 2xl:gap-5">
+        <section className="w-full flex-1 flex flex-col items-center justify-center md:gap-3 2xl:gap-5">
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-sm 2xl:text-xl text-(--White) font-Bold">{ amount }</span>
+            <span className="text-sm md:text-l xl:text-xl text-(--White) font-Bold">{ amount }</span>
           </div>
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-l 2xl:text-4xl text-(--White) font-extrabold">{ price } PLN</span>
+            <span className="text-l md:text-l xl:text-4xl text-(--White) font-extrabold">{ price } PLN</span>
           </div>
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-sm 2xl:text-xl text-(--White) font-bold"> <span className="text-red-500">{ tag_reduce }%</span> Zniżki</span>
+            <span className="text-sm md:text-l xl:text-xl text-(--White) font-bold"> <span className="text-red-500">{ tag_reduce }%</span> Zniżki</span>
           </div>
         </section>
         {/* Footer */}
@@ -58,7 +58,7 @@ export default function EntryInfoModal({ isOpen, onClose }: Props) {
 
   return (
     <section className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 overflow-hidden">
-      <section className="bg-(--WarmWhite) w-full 2xl:w-3/5 2xl:aspect-video aspect-16/15 rounded-2xl shadow-2xl relative flex flex-col items-center justify-center bg-[url('/Entrybg.png')] bg-cover bg-no-repeat bg-center overflow-y-auto">
+      <section className="bg-(--WarmWhite) w-full md:w-3/5  2xl:aspect-video aspect-16/15 md:aspect-16/13 rounded-2xl shadow-2xl relative flex flex-col items-center justify-center bg-[url('/Entrybg.png')] bg-cover bg-no-repeat bg-center overflow-y-auto">
         <div className="text-2xl 2xl:text-3xl hover:text-red-500 absolute top-3 right-0 z-60">
           <button
             onClick={onClose}

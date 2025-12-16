@@ -19,6 +19,8 @@ export default function PriceModal({ isOpen, onClose, customMode, setCustomMode,
   const min = 1, max = 10;
   const percent = ((selectedHours - min) / (max - min)) * 100;
 
+  console.log(window.innerWidth + "x" + window.innerHeight);
+
   // Prevent page scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -43,11 +45,11 @@ export default function PriceModal({ isOpen, onClose, customMode, setCustomMode,
   }
 
   return (
-    <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+    <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 md:p-4">
       <div
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
-        className="bg-(--WarmWhite) w-full 2xl:w-4/5 max-h-[90vh] 2xl:max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-y-auto relative p-8"
+        className="bg-(--WarmWhite) w-full h-full 2xl:w-4/5 max-h-[90vh] 2xl:max-h-[90svh] rounded-2xl shadow-2xl flex flex-col overflow-y-auto relative p-0 xl:p-8"
       >
         {/* Close Button */}
         <button
@@ -59,7 +61,7 @@ export default function PriceModal({ isOpen, onClose, customMode, setCustomMode,
 
         {/* Modal Header */}
         <div className="w-full text-center mb-8">
-          <h2 className="text-5xl font-extrabold text-black">Cennik</h2>
+          <h2 className="text-5xl font-extrabold text-black p-4">Cennik</h2>
         </div>
 
         {/* Hours Selection */}

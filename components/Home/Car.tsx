@@ -76,7 +76,7 @@ export default function CarHero({ with_buttons, selectable, selected, onSelectCa
   const handleSelect = onSelectCar ? onSelectCar : (id: number) => setInternalSelected(prev => (prev === id ? null : id));
 
   return (
-    <section className="Main w-full flex items-center justify-center mx-auto xl:pt-10 2xl:pt-15 gap-15 bg-(--WarmWhite) flex-wrap">
+    <section className="Main w-full flex items-center justify-center mx-auto pt-5 xl:pt-10 2xl:pt-15 gap-15 bg-(--WarmWhite) flex-wrap">
       {carList.map((car, i) => (
         <CarCard
           key={i}

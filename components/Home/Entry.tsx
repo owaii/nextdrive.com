@@ -38,7 +38,7 @@ export default function Entry({ goToLogin, goToSignup, smoothScroll, openInfoPop
       tl.from(split.words, {
         y: 100,
         opacity: 0,
-        ease: "circ.out",
+        ease: "circ.inOut",
         stagger: 0.5,
       })
 
@@ -101,7 +101,7 @@ export default function Entry({ goToLogin, goToSignup, smoothScroll, openInfoPop
         <section className="flex-1 flex flex-col justify-center items-center px-4 2xl:px-10">
 
           <div className="w-full max-w-7xl text-center">
-            <span className="title text-3xl xl:text-6xl 2xl:text-8xl font-extrabold text-(--White) drop-shadow-[0_5px_10px_rgba(0,0,0,0.7)] leading-tight">
+            <span className="title text-4xl xl:text-6xl 2xl:text-8xl font-extrabold text-(--White) drop-shadow-[0_5px_10px_rgba(0,0,0,0.7)] leading-tight">
               {texts[index]}
             </span>
             

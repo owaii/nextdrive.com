@@ -25,6 +25,11 @@ export const metadata = {
   description: "Najlepsze oraz Najtańsze Jazdy Doszkalające w Warszawie",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
+
 // layout.tsx stays **server component**
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
