@@ -2,7 +2,6 @@
 
 import { ClassNames } from "@emotion/react";
 import Image from "next/image";
-import { IoIosAddCircle } from "react-icons/io";
 
 export default function UserDashboard() {
   return (

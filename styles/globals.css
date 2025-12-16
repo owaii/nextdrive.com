@@ -39,13 +39,14 @@
 
 body {
   color: var(--foreground);
-  font-family: monospace;
+  font-family: "Libre Baskerville", serif;
 }
 
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  box-sizing: border-box;
 }
 
 html {
@@ -54,27 +55,6 @@ html {
 
 .HeaderSpan {
   color: var(--backgroundMain);
-}
-
-.HeaderSpan {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.HeaderSpan::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: currentColor;
-  transition: width 0.3s ease;
-}
-
-.HeaderSpan:hover::after {
-  width: 100%;
 }
 
 .LoginFormBackground {
