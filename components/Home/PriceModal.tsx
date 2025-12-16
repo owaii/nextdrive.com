@@ -47,7 +47,7 @@ export default function PriceModal({ isOpen, onClose, customMode, setCustomMode,
       <div
         onWheel={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
-        className="bg-(--WarmWhite) w-full xl:w-4/5 max-h-[90vh] xl:max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-y-auto relative p-8"
+        className="bg-(--WarmWhite) w-full 2xl:w-4/5 max-h-[90vh] 2xl:max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-y-auto relative p-8"
       >
         {/* Close Button */}
         <button
@@ -139,9 +139,9 @@ export default function PriceModal({ isOpen, onClose, customMode, setCustomMode,
 
         {/* Price Summary */}
         <div className="w-full flex justify-center mb-6">
-          <div className="w-full xl:w-1/3 flex justify-between items-center p-5 shadow-md rounded-md hover:scale-105 transition">
-            <span className="text-5xl xl:text-5xl font-bold text-black">Cena:</span>
-            <span className="text-5xl xl:text-5xl font-bold text-black">{priceValue > 0 ? priceValue : "-"} zł</span>
+          <div className="w-full 2xl:w-1/3 flex justify-between items-center p-5 shadow-md rounded-md hover:scale-105 transition">
+            <span className="text-5xl 2xl:text-5xl font-bold text-black">Cena:</span>
+            <span className="text-5xl 2xl:text-5xl font-bold text-black">{priceValue > 0 ? priceValue : "-"} zł</span>
           </div>
         </div>
       </div>

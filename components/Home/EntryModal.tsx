@@ -18,33 +18,33 @@ function Block({ title, amount, price, regular_price } : FileProps) {
   const tag_reduce = Math.floor(100 - ((price / regular_price) * 100));
 
   return (
-    <section className="w-35 h-45 xl:w-70 xl:h-70 flex flex-col bg-(--Black)/95 hover:scale-102 cursor-pointer duration-500">
+    <section className="w-35 h-45 2xl:w-70 2xl:h-70 flex flex-col bg-(--Black)/95 hover:scale-102 cursor-pointer duration-500">
       {/* Main Part */}
       <section className="w-full flex-1 flex flex-col">
         {/* Title */}
-        <div className="w-full h-4 xl:h-5 flex items-center justify-center">
-          <span className="text-xs xl:text-sm text-(--White) font-extralight">{ title }</span>
+        <div className="w-full h-4 2xl:h-5 flex items-center justify-center">
+          <span className="text-xs 2xl:text-sm text-(--White) font-extralight">{ title }</span>
         </div>
         {/* Main */}
-        <section className="w-full flex-1 flex flex-col items-center justify-center xl:gap-5">
+        <section className="w-full flex-1 flex flex-col items-center justify-center 2xl:gap-5">
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-sm xl:text-xl text-(--White) font-Bold">{ amount }</span>
+            <span className="text-sm 2xl:text-xl text-(--White) font-Bold">{ amount }</span>
           </div>
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-l xl:text-4xl text-(--White) font-extrabold">{ price } PLN</span>
+            <span className="text-l 2xl:text-4xl text-(--White) font-extrabold">{ price } PLN</span>
           </div>
           <div className="w-full h-5 flex items-center justify-center">
-            <span className="text-sm xl:text-xl text-(--White) font-bold"> <span className="text-red-500">{ tag_reduce }%</span> Zniżki</span>
+            <span className="text-sm 2xl:text-xl text-(--White) font-bold"> <span className="text-red-500">{ tag_reduce }%</span> Zniżki</span>
           </div>
         </section>
         {/* Footer */}
         <div className="w-full h-10 flex items-center justify-center text-center">
-          <span className="text-xs xl:text-sm text-(--White) font-extralight">Cena Regularna: { regular_price } PLN</span>
+          <span className="text-xs 2xl:text-sm text-(--White) font-extralight">Cena Regularna: { regular_price } PLN</span>
         </div>
       </section>
       {/* Button Part */}
       <div className="w-full h-10">
-        <button className="w-full h-full text-sm xl:text-xl flex items-center justify-center bg-gray-500 text-(--White) cursor-pointer ">
+        <button className="w-full h-full text-sm 2xl:text-xl flex items-center justify-center bg-gray-500 text-(--White) cursor-pointer ">
           Zamów Jazdy
         </button>
       </div>
@@ -58,11 +58,11 @@ export default function EntryInfoModal({ isOpen, onClose }: Props) {
 
   return (
     <section className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 overflow-hidden">
-      <section className="bg-(--WarmWhite) w-full xl:w-3/5 xl:aspect-video aspect-16/15 rounded-2xl shadow-2xl relative flex flex-col items-center justify-center bg-[url('/Entrybg.png')] bg-cover bg-no-repeat bg-center overflow-y-auto">
-        <div className="text-2xl xl:text-3xl hover:text-red-500 absolute top-3 right-0 z-60">
+      <section className="bg-(--WarmWhite) w-full 2xl:w-3/5 2xl:aspect-video aspect-16/15 rounded-2xl shadow-2xl relative flex flex-col items-center justify-center bg-[url('/Entrybg.png')] bg-cover bg-no-repeat bg-center overflow-y-auto">
+        <div className="text-2xl 2xl:text-3xl hover:text-red-500 absolute top-3 right-0 z-60">
           <button
             onClick={onClose}
-            className="mr-3 xl:mr-5 cursor-pointer"
+            className="mr-3 2xl:mr-5 cursor-pointer"
           >
             ✕
           </button>
@@ -70,16 +70,16 @@ export default function EntryInfoModal({ isOpen, onClose }: Props) {
         <section className="w-full h-2/3 flex flex-col">
           <section className="w-full h-20 flex items-center justify-center gap-10">
             <button onClick={() => setIsManualSelected(true)} className=
-            {`bg-(--White) text-(--Black) text-sm xl:text-xl font-bold py-1 px-3 xl:py-2 xl:px-5 hover:scale-101 cursor-pointer 
+            {`bg-(--White) text-(--Black) text-sm 2xl:text-xl font-bold py-1 px-3 2xl:py-2 2xl:px-5 hover:scale-101 cursor-pointer 
             ${isManualSelected && "border-[var(--White)] border-3 bg-[var(--Black)]/78 text-(--White)"}`}
             >Manual</button>
             <button onClick={() => setIsManualSelected(false)} className=
-            {`bg-(--White) text-(--Black) text-sm xl:text-xl font-bold py-1 px-3 xl:py-2 xl:px-5 hover:scale-101 cursor-pointer 
+            {`bg-(--White) text-(--Black) text-sm 2xl:text-xl font-bold py-1 px-3 2xl:py-2 2xl:px-5 hover:scale-101 cursor-pointer 
             ${!isManualSelected && "border-[var(--White)] border-3 bg-[var(--Black)]/78 text-(--White)"}`}
             >Automatic</button>
           </section>
           <section className="w-full h-full relative">
-            <section className="w-full h-full flex items-center justify-center gap-2 xl:gap-10 absolute top-0 left-0 z-20">
+            <section className="w-full h-full flex items-center justify-center gap-2 2xl:gap-10 absolute top-0 left-0 z-20">
               {isManualSelected && (
                 <>
                   <Block

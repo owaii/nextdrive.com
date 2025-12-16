@@ -123,15 +123,15 @@ export default function Home() {
           <section className="main w-full flex flex-col items-center">
             {/* Upper Section */}
             <section className="w-full flex flex-col items-center bg-(--WarmWhite) py-30">
-              <section className="w-full xl:3/5 xl:h-20 flex">
+              <section className="w-full xl:w-2/5 2xl:w-4/5 xl:h-15 2xl:h-20 flex">
                 <div className="flex-3 h-full flex justify-start items-center">
-                  <span className="text-2xl xl:text-5xl font-extrabold">Poznaj naszą flotę</span>
+                  <span className="text-2xl xl:text-4xl 2xl:text-5xl font-extrabold">Poznaj naszą flotę</span>
                 </div>
                 <div className="flex-2 h-full flex justify-end items-center">
                   <button 
                     onClick={() => setIsOpenPrice(true)} 
                     className="
-                      text-(--White) text-sm xl:text-2xl font-semibold 
+                      text-(--White) text-sm xl:text-xl 2xl:text-2xl font-semibold 
                       bg-(--Black) hover:cursor-pointer px-6 py-3 rounded-md 
                       transition transform hover:scale-107
                     "> Zobacz cennik

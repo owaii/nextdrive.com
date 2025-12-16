@@ -9,9 +9,9 @@ export default function PromoBanner({ openInfoPopup } : BannerProps) {
     <section 
       onClick={openInfoPopup} 
       className="
-        absolute xl:top-5 top-20 left-1/2 -translate-x-1/2 z-50 
+        absolute xl:top-5 2xl:top-5 top-20 left-1/2 -translate-x-1/2 z-50 
         flex flex-col 
-        w-full xl:w-3/5 aspect-9/1 
+        w-full xl:w-3/5 2xl:w-3/5 aspect-9/1 
         cursor-pointer"
       >
       <Image 

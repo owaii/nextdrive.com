@@ -12,7 +12,7 @@ type HowItWorksBlockProps = {
 
 function HowItWorksBlock({ image_src, title, text }: HowItWorksBlockProps) {
   return (
-    <section className="p-5 h-full xl:h-80 flex flex-col xl:flex-row xl:justify-center">
+    <section className="p-5 h-full xl:h-70 2xl:h-80 flex flex-col xl:flex-row 2xl:flex-row xl:justify-center 2xl:justify-center">
       <div className="flex-1 aspect-square p-5 relative flex justify-center items-center">
         <Image
           src={`/${image_src}`}
@@ -22,11 +22,11 @@ function HowItWorksBlock({ image_src, title, text }: HowItWorksBlockProps) {
         />
       </div>
       <section className="flex flex-1 flex-col justify-center">
-        <div className="flex-1 flex items-center justify-center p-2 xl:p-5">
-          <span className="text-xl xl:text-3xl font-extrabold">{title}</span>
+        <div className="flex-1 flex items-center justify-center p-2 xl:p-5 2xl:p-5">
+          <span className="text-xl xl:text-2xl 2xl:text-3xl font-extrabold">{title}</span>
         </div>
-        <div className="flex-2 flex justify-center items-start mt-5 xl:mt-10">
-          <span className="text-sm xl:text-l font-light px-10 text-center xl:text-left">{text}</span>
+        <div className="flex-2 flex justify-center items-start mt-5 xl:mt-8 2xl:mt-10">
+          <span className="text-sm xl:text-l 2xl:text-l font-light px-10 text-center xl:text-left 2xl:text-left">{text}</span>
         </div>
       </section>
     </section>
@@ -58,7 +58,7 @@ export default function HowItWorksHero() {
   return (
     <section id="HowThisWorks" className="pin-section w-full min-h-screen relative shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div className="w-full h-screen bg-(--WarmWhite) flex items-center justify-center">
-        <span className="text-4xl xl:text-6xl text-black font-extrabold">Jak to działa?</span>
+        <span className="text-4xl xl:text-5xl 2xl:text-6xl text-black font-extrabold">Jak to działa?</span>
       </div>
       <div className="box-1 w-full h-screen bg-(--WarmWhite) flex items-center justify-center absolute top-0 left-0">
         <HowItWorksBlock 
