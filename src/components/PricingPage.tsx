@@ -34,15 +34,16 @@ function CarBlock({ title, gearbox, color, isSelected, onSelect } : CarBlockProp
     <section onClick={onSelect} className={`
       w-full aspect-3/1 rounded-2xl flex my-2 cursor-pointer
       md:w-2/5 md:aspect-auto
+      2xl:w-4/5 2xl:aspect-auto
       ${isSelected ? "scale-102 border-2 border-txt-red" : "border border-brand-black"}
       `}>
       <section className="flex-1 h-full flex flex-col">
         <div className="flex-2 w-full flex items-center justify-start pl-5">
-          <span className="text-2xl text-txt-black font-extrabold">{ title }</span>
+          <span className="text-2xl 2xl:text-5xl text-txt-black font-extrabold">{ title }</span>
         </div>
         <div className="flex-1 w-full flex pl-10 gap-5">
-          <span className="text-sm text-txt-black font-light">{ gearbox }</span>
-          <span className="text-sm text-txt-black font-light">{ color }</span>
+          <span className="text-sm 2xl:text-2xl text-txt-black font-light">{ gearbox }</span>
+          <span className="text-sm 2xl:text-2xl text-txt-black font-light">{ color }</span>
         </div>
       </section>
       <div className="w-10 h-full flex items-center justify-center">
@@ -74,9 +75,11 @@ export default function PricingPage() {
 
   let priceValue = 0;
   if (selectedCarData) {
-    if (selectedHours === 6 || selectedHours === 10) {
-      priceValue = carBasePrice * selectedHours * 0.75;
-    } else {
+    if (selectedHours === 6 && selectedCarData.gearbox === "Automatic") priceValue = 660;
+    else if (selectedHours === 6 && selectedCarData.gearbox === "Manual") priceValue = 630;
+    else if (selectedHours === 10 && selectedCarData.gearbox === "Automatic") priceValue = 1000;
+    else if (selectedHours === 10 && selectedCarData.gearbox === "Manual") priceValue = 960;
+    else {
       priceValue = carBasePrice * selectedHours;
     }
   }
@@ -93,8 +96,8 @@ export default function PricingPage() {
   }, [isCalcPopupOpen]);
 
   return (
-    <section className="w-full py-10 flex flex-col bg-brand-white 2xl:items-center">
-      <section className="w-full px-2 py-5 flex flex-col 2xl:flex-row gap-2">
+    <section id="Pricing" className="w-full py-10 2xl:px-30 flex flex-col bg-brand-white 2xl:items-center">
+      <section className="w-full 2xl:w-4/5 px-2 py-5 flex flex-col 2xl:flex-row gap-2">
         <div className="w-full flex items-center justify-start">
           <span className={clsx(
             "text-4xl text-txt-black font-extrabold tracking-wide",
@@ -142,8 +145,8 @@ export default function PricingPage() {
       {isCalcPopupOpen && (
         <div className="fixed inset-0 w-full h-full bg-brand-black/60 flex items-center justify-center z-30">
           <section className={clsx(
-            "relative w-full h-9/10 rounded-sm bg-brand-white flex flex-col items-center overflow-y-auto",
-            "md:w-9/10 h-full"
+            "relative w-full max-w-3xl max-h-[80vh] rounded-sm bg-brand-white flex flex-col items-center overflow-y-auto",
+            "md:w-9/10"
           )}>
             {/* Escape button */}
             <div onClick={() => setIsCalcPopupOpen(false)} className="absolute top-4 right-4 text-2xl hover:text-txt-red cursor-pointer">
@@ -210,7 +213,7 @@ export default function PricingPage() {
                     </section>
                     <div className="w-full flex items-center justify-center">
                       <button onClick={() => setIsCustomChoiceOpen(false)} className="py-1.5 px-2 rounded-sm bg-brand-white border border-brand-black hover:scale-102 duration-300 cursor-pointer">
-                        <span className="text-sm text-txt-black font-bold">Wybierz Własną</span>
+                        <span className="text-sm text-txt-black font-bold">Wróć</span>
                       </button>
                     </div>
                   </>
@@ -219,10 +222,11 @@ export default function PricingPage() {
             </section>
 
             {/* CarChoice */}
-            <section className="w-full flex-1 flex items-center justify-center">
+            <section className="w-full flex-1 2xl:flex-3 flex items-center justify-center">
               <section className={clsx(
-                "w-3/4 flex flex-col gap-2",
-                "md:flex-row md:w-full md:px-5"
+                "w-3/4 flex flex-col justify-center gap-2",
+                "md:flex-row md:w-full md:px-5",
+                "2xl:w-3/4 2xl:flex-col 2xl:px-20 2xl:items-center 2xl:gap-5"
               )}>
                 {cars.map((car, index) => (
                   <CarBlock

@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export default function AboutMe() {
   return (
-    <section className="relative w-full h-screen bg-transparent flex items-center justify-center">
+    <section id="AboutMe" className="relative w-full h-screen bg-transparent flex items-center justify-center">
       {/* Parallax background */}
       <div className="absolute top-0 left-0 w-full h-screen bg-[url('/images/ParalaxBackground1.png')] bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60" />

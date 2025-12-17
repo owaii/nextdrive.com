@@ -10,8 +10,8 @@ export default function ClientToaster() {
         style: {
           width: "400px",
           maxWidth: "90vw",
-          background: "var(--Black)",
-          color: "var(--White)",
+          background: "var(--bg-primary)",
+          color: "var(txt-primary)",
           padding: "20px",
           borderRadius: "10px",
         },

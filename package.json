@@ -27,15 +27,5 @@
     "eslint-config-next": "16.0.10",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
-  },
-  "description": "Kompleksowa aplikacja webowa do zarządzania jazdami w szkole jazdy.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/owaii/nextdrive.com.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/owaii/nextdrive.com/issues"
-  },
-  "homepage": "https://github.com/owaii/nextdrive.com#readme"
+  }
 }

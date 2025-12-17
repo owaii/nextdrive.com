@@ -40,7 +40,7 @@ export default function CarChoicePage() {
 
   return (
     <section className="w-full py-10 flex flex-col bg-brand-white">
-      <section className="w-full px-2 py-5 flex flex-col gap-2">
+      <section className="w-full px-2 2xl:px-20 py-5 flex flex-col gap-2 2xl:flex-row">
         <div className="w-full flex items-center justify-start">
           <span className={clsx(
             "text-3xl text-txt-black font-bold tracking-wide",
@@ -48,8 +48,8 @@ export default function CarChoicePage() {
             "2xl:text-6xl"
           )}> Nasze Samochody </span>
         </div>
-        <div className="w-full flex items-center justify-start ml-2">
-          <Link href="/">
+        <div className="w-full flex items-center justify-start ml-2 2xl:justify-end">
+          <Link href="#Pricing">
             <span className={clsx(
               "text-xl text-txt-black font-light tracking-wide",
               "relative inline-block",

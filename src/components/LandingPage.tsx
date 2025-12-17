@@ -1,7 +1,9 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import clsx from "clsx";
 
 type PromoBlockProps = {
@@ -67,10 +69,14 @@ export default function LandingPage() {
           </div>
           <div className="flex-1 h-full flex justify-end items-center">
             <section className="flex gap-3 mr-2">
-              <button className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer">
+              <button 
+                onClick={() => { toast("Logowanie oraz Rejestracja jest zarezerwowana tylko dla uczniów szkólki i nie została jeszcze zrobiona") }}
+                className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer">
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">Zarejestruj</span>
               </button>
-              <button className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer">
+              <button 
+                onClick={() => { toast("Logowanie oraz Rejestracja jest zarezerwowana tylko dla uczniów szkólki i nie została jeszcze zrobiona") }}
+                className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer">
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">Zaloguj</span>
               </button>
             </section>
@@ -86,10 +92,14 @@ export default function LandingPage() {
             </div>
             <section className="w-full h-20 flex justify-center items-center gap-5">
               <button className="py-1.5 px-2 rounded-sm bg-brand-white border border-brand-black hover:scale-102 duration-300 cursor-pointer">
-                <span className="text-sm 2xl:text-xl text-txt-black font-bold">Dowiedz się więcej</span>
+                <Link href="#AboutMe">
+                  <span className="text-sm 2xl:text-xl text-txt-black font-bold">Dowiedz się więcej</span>
+                </Link>
               </button>
               <button className="py-1.5 px-2 rounded-sm bg-brand-black border border-brand-white hover:scale-102 duration-300 cursor-pointer">
-                <span className="text-sm 2xl:text-xl text-txt-white font-bold">Kontakt</span>
+                <Link href="#Contact">
+                  <span className="text-sm 2xl:text-xl text-txt-white font-bold">Kontakt</span>
+                </Link>
               </button>
             </section>
           </section>

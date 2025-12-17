@@ -29,3 +29,19 @@
   --breakpoint-tablet: 768px;
   --breakpoint-fullhd: 1920px;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--libre-baskerville);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+

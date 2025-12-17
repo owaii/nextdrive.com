@@ -4,8 +4,8 @@ import Image from "next/image";
 import clsx from "clsx";
 
 export default function ContactPage() {
-  const phone_number = "+48 123 456 789";
-  const email = "jan.kowalski@gmail.com";
+  const phone_number = "+48 571 542 411";
+  const email = "jazdydoszkalajace24h@gmail.com";
 
   const handleCopy = async (text: string) => {
     try {
@@ -16,7 +16,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="relative w-full h-screen bg-transparent flex items-center justify-center">
+    <section id="Contact" className="relative w-full h-screen bg-transparent flex items-center justify-center">
       {/* Parallax background */}
       <div className="absolute top-0 left-0 w-full h-screen bg-[url('/images/ParalaxBackground1.png')] bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 <span 
                   onClick={() => handleCopy(phone_number)}
                   className={clsx(
-                    "text-2xl text-brand-black font-bold",
+                    "text-xl text-brand-black font-bold",
                     "relative cursor-pointer",
                     "after:content-[''] after:absolute after:left-0 after:bottom-0",
                     "after:w-0 after:h-0.5 after:bg-black",
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 <span 
                   onClick={() => handleCopy(email)}
                   className={clsx(
-                    "text-2xl text-brand-black font-bold",
+                    "text-xl text-brand-black font-bold",
                     "relative cursor-pointer",
                     "after:content-[''] after:absolute after:left-0 after:bottom-0",
                     "after:w-0 after:h-0.5 after:bg-black",

@@ -1,3 +1,5 @@
+"use client"
+
 {/* Files Imports */}
 import LandingPage from "@/components/LandingPage";
 import CarChoicePage from "@/components/CarChoicePage";
