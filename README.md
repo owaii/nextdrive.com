@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextdrive.com
 
-## Getting Started
+Kompleksowa aplikacja webowa do zarządzania jazdami w szkole jazdy.
 
-First, run the development server:
+## 📌 Role i uprawnienia
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Administrator
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Dodawanie i usuwanie instruktorów
+- Tworzenie i edycja harmonogramu jazd
+- Zarządzanie użytkownikami i statystykami
+- Ustawianie maksymalnej liczby godzin przed rezerwacją
+- Zatwierdzanie lub odrzucanie rezerwacji uczniów
+- Zmiana trybu jazd (automatyczny/manualny)
+- Zarządzanie miejscami jazd (Bródno, Bemowo, Bielany)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Instruktor
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Widok swoich jazd i możliwość zmiany statusu (odbyta/odwołana)
+- Ustawianie dostępności dni
+- Zmiana jazd z automatycznych na manualne
+- Dodawanie zdjęć samochodów
+- Widok informacji o uczniach (przejechane godziny, kontakt, preferowane miejsca)
 
-## Learn More
+### Uczeń
 
-To learn more about Next.js, take a look at the following resources:
+- Rezerwacja dostępnych terminów zgodnie z ograniczeniami
+- Anulowanie jazd dzień wcześniej
+- Widok swoich jazd i postępów w godzinach
+- Maksymalnie 2 jazdy w tygodniu
+- Rezerwacje w blokach w jednym miejscu
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📅 Ograniczenia rezerwacji
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Maksymalny czas do przodu: 1 miesiąc
+- Maksymalna liczba jazd w tygodniu: 2
+- System grupuje jazdy w tym samym miejscu (blok jazd)
+- Rezerwacje automatyczne vs manualne:
+  - **Automatyczne:** weekendy lub dopuszczone przez system miejsce/godzinę
+  - **Manualne:** wymagana zgoda instruktora w tygodniu lub przy wyjątkach
+- Odwołanie jazdy: tylko dzień wcześniej
 
-## Deploy on Vercel
+## 📍 Miejsca jazd i logika map
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Każda jazda ma przypisane miejsce (Bródno, Bemowo, Bielany)
+- Obliczanie czasu przejazdu między miejscami (np. Google Maps API)
+- Jeśli czas przejazdu jest za długi, system blokuje automatyczne ustawienie jazdy w innym miejscu lub proponuje późniejszy termin
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚗 Rodzaje jazd
+
+- **Zwykłe:** standardowe lekcje, rezerwowane automatycznie lub manualnie
+- **Doszkalające:** specjalne, mogą wymagać zgody instruktora, oznaczone w harmonogramie
+
+## 👤 Dane użytkowników
+
+- Imię, kontakt
+- Liczba godzin przejechanych
+- Preferowane miejsca jazd
+- Historia jazd
+- Opcjonalnie: zdjęcia samochodów używanych w lekcjach
+
+## 💻 Interfejs (frontend)
+
+- Responsywny design (telefon + komputer)
+- Widok kalendarza z kolorami dla różnych typów jazd i miejsc
+- Drag & drop dla instruktorów/adminów
+- Widok bloków jazd dla uczniów
+
+## ⚙️ Backend / logika
+
+- Sprawdzanie limitów rezerwacji tygodniowych i maks. czasu do przodu
+- Automatyczne grupowanie jazd w blokach w jednym miejscu
+- Rezerwacje automatyczne vs manualne
+- Obsługa zdjęć samochodów (w Firebase Storage)
