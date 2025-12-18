@@ -44,7 +44,7 @@ export default function CarChoicePage() {
         <div className="w-full flex items-center justify-start">
           <span className={clsx(
             "text-3xl text-txt-black font-bold tracking-wide",
-            "md:text-4xl",
+            "sm:text-4xl",
             "2xl:text-6xl"
           )}> Nasze Samochody </span>
         </div>
@@ -60,7 +60,7 @@ export default function CarChoicePage() {
               "after:scale-x-0 after:origin-left",
               "after:transition-transform after:duration-300",
               "hover:after:scale-x-100",
-              "md:text-2xl",
+              "sm:text-2xl",
               "2xl:text-3xl"
             )}>
               Zobacz Cennik {'>'}
@@ -70,7 +70,7 @@ export default function CarChoicePage() {
       </section>
       <section className={clsx(
         "w-full px-10 flex flex-col gap-5",
-        "md:px-40",
+        "sm:px-40",
         "2xl:flex-row"
       )}>
         {

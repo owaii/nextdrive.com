@@ -11,27 +11,17 @@ export default function AboutMe() {
 
       {/* Foreground content */}
       <section className={clsx(
-        "relative z-10 w-9/10 h-7/10 bg-brand-white rounded-2xl p-8 flex flex-col",
-        "md:h-9/10 md:flex-row-reverse",
-        "2xl:w-7/10 2xl:h-6/10"
+        "relative z-10 w-9/10 h-auto bg-brand-white rounded-2xl flex flex-col",
+        "2xl:w-4/10 2xl:h-6/10"
       )}>
         <div className="w-full flex items-center justify-center">
-          <div className={clsx(
-            "relative w-1/2 aspect-square",
-            "md:w-full",
-            "2xl:w-7/10"
-          )}>
-            <Image 
-              src="/images/TeachersPhoto.png"
-              alt="Teacher's photo"
-              fill
-              className="object-contain"
-            />
+          <div className="w-full p-3 sm:p-5 flex justify-center items-center bg-txt-red rounded-t-2xl">
+            <span className="text-5xl text-txt-white font-extrabold tracking-wider">O Mnie</span>
           </div>
         </div>
         <div className={clsx(
-          "text-sm text-txt-black font-light tracking-normal mx-2 my-5",
-          "2xl:text-xl"
+          "text-sm px-5 text-txt-black flex-1 font-light tracking-normal mx-2 my-5",
+          "2xl:text-2xl"  
         )}>
           <p>Jestem instruktorem jazdy z pasją, który stawia na indywidualne podejście do każdego kursanta. Zależy mi, aby nauka była skuteczna, a przy tym przyjemna i bezstresowa.</p>
           <br />

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import clsx from "clsx";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
   const phone_number = "+48 571 542 411";
@@ -10,7 +11,9 @@ export default function ContactPage() {
   const handleCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      toast.success("Skopiowano do schowka!");
     } catch (err) {
+      toast.error("Nie udało się skopiować");
       console.error("Copy failed", err);
     }
   };
@@ -25,22 +28,22 @@ export default function ContactPage() {
       {/* Foreground content */}
       <section className={clsx(
         "relative z-10 w-9/10 h-1/2 rounded-2xl flex flex-col",
-        "md:h-7/10 md:w-7/10",
+        "sm:h-7/10 sm:w-9/10",
         "2xl:h-1/3 2xl:w-1/2"
       )}>
-        <div className="w-full p-2 md:p-5 flex justify-center items-center bg-brand-special rounded-t-2xl">
+        <div className="w-full p-6 sm:p-7 flex justify-center items-center bg-txt-red rounded-t-2xl">
           <span className="text-5xl text-txt-white font-extrabold tracking-wider">Kontakt</span>
         </div>
         <div className="w-full flex-1 bg-brand-white rounded-b-2xl flex items-start justify-center">
           <section className={clsx(
-            "flex flex-col h-2/3 mt-6 gap-5",
-            "md:flex-row md:w-full md:px-2 md:gap-0",
+            "flex flex-col h-auto py-10 gap-5",
+            "sm:flex-row sm:w-full sm:px-2 sm:gap-0",
             "2xl:items-center 2xl:justify-center"
           )}>
             {/* First Section */}
             <section className="flex-1">
               <div className="w-full flex-1 p-3 flex items-center justify-center">
-                <div className="w-10 aspect-square relative">
+                <div className="w-10 2xl:w-15 aspect-square relative">
                   <Image 
                     src="/images/PhoneIcon.png"
                     alt="Phone Icon"
@@ -62,6 +65,7 @@ export default function ContactPage() {
                     "after:w-0 after:h-0.5 after:bg-black",
                     "after:transition-all after:duration-300",
                     "hover:after:w-full",
+                    "2xl:text-2xl"
                   )}>
                     { phone_number }
                   </span>
@@ -72,7 +76,7 @@ export default function ContactPage() {
             {/* Second Section */}
             <section className="flex-1">
               <div className="w-full flex-1 p-3 flex items-center justify-center">
-                <div className="w-10 aspect-square relative">
+                <div className="w-10 2xl:w-15 aspect-square relative">
                   <Image 
                     src="/images/EmailIcon.png"
                     alt="Email Icon"
@@ -92,6 +96,7 @@ export default function ContactPage() {
                     "after:w-0 after:h-0.5 after:bg-black",
                     "after:transition-all after:duration-300",
                     "hover:after:w-full",
+                    "2xl:text-2xl"
                   )}>
                   { email }
                 </span>

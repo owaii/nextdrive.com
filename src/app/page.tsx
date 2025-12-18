@@ -7,6 +7,8 @@ import AboutMe from "@/components/AboutMe";
 import HeroSection from "@/components/HeroSection";
 import ContactPage from "@/components/ContactPage";
 import PricingPage from "@/components/PricingPage";
+import InfoPage from "@/components/InfoPage";
+import OffersHero from "@/components/OffersHero";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,8 +23,12 @@ export default function Home() {
 
         <HeroSection />
 
-        <ContactPage />
+        <InfoPage />
 
+        <OffersHero />
+
+        <ContactPage />
+        
         <PricingPage />
 
         <Footer />

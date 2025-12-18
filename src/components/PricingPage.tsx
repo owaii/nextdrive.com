@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import gsap from "gsap";
 
 type PriceBlockProps = {
   title: string,
@@ -19,7 +20,7 @@ type CarBlockProps = {
 function PriceBlock({ title, price } : PriceBlockProps) {
   return (
     <section className="w-full flex">
-      <div className="flex-1 flex justify-start items-center">
+      <div className="flex-2 flex justify-start items-center">
         <span className="text-l text-txt-black font-extralight">{ title }</span>
       </div>
       <div className="flex-1 flex justify-end items-center">
@@ -63,8 +64,8 @@ export default function PricingPage() {
 
   const cars = [
     { id: 0, title: "Suzuki Swift", gearbox: "Manual", color: "Limonkowy", base_price: 110 },
-    { id: 1, title: "Opel Mokka", gearbox: "Automatic", color: "Lime", base_price: 120 },
-    { id: 2, title: "Suzuki Swift", gearbox: "Manual", color: "Brązowy", base_price: 110 }
+    { id: 1, title: "Opel Mokka", gearbox: "Automatic", color: "Biały", base_price: 120 },
+    { id: 2, title: "Suzuki Swift", gearbox: "Manual", color: "Pomarańczowy", base_price: 110 }
   ];
 
   const min = 1, max = 10;
@@ -97,7 +98,7 @@ export default function PricingPage() {
 
   return (
     <section id="Pricing" className="w-full py-10 2xl:px-30 flex flex-col bg-brand-white 2xl:items-center">
-      <section className="w-full 2xl:w-4/5 px-2 py-5 flex flex-col 2xl:flex-row gap-2">
+      <section className="w-full 2xl:w-3/5 px-2 py-5 flex flex-col 2xl:flex-row gap-2">
         <div className="w-full flex items-center justify-start">
           <span className={clsx(
             "text-4xl text-txt-black font-extrabold tracking-wide",
@@ -140,12 +141,24 @@ export default function PricingPage() {
           <PriceBlock title="Manual 6h" price={630}/>
           <PriceBlock title="Manual 10h" price={960}/>
         </section>
-      </section>
 
+        {/* Title */}
+        <div className="w-full flex items-center justify-center">
+          <span className="text-3xl text-txt-black font-medium tracking-wide">Programy Specjalne</span>
+        </div>
+
+        {/* Main */}
+        <section className="w-full flex flex-col">
+          <PriceBlock title="Kurs Kat. B Automat" price={4300}/>
+          <PriceBlock title="Podstawienie samochodu" price={300}/>
+        </section>
+
+      </section>
+      
       {isCalcPopupOpen && (
         <div className="fixed inset-0 w-full h-full bg-brand-black/60 flex items-center justify-center z-30">
           <section className={clsx(
-            "relative w-full max-w-3xl max-h-[80vh] rounded-sm bg-brand-white flex flex-col items-center overflow-y-auto",
+            "relative w-full max-w-3xl max-h-[85vh] rounded-sm bg-brand-white flex flex-col items-center overflow-y-auto 2xl:overflow-hidden",
             "md:w-9/10"
           )}>
             {/* Escape button */}

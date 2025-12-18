@@ -17,7 +17,7 @@ function HeroBlock({ title, text , image_src } : HeroBlockProps) {
     <section className="w-full h-full flex items-center justify-center">
       <section className={clsx(
         "w-full h-2/3 flex flex-col",
-        "md:flex-row"
+        "sm:flex-row"
       )}>
         <div className="flex-1 flex justify-center items-center">
           <div className="relative h-2/3 aspect-square 2xl:h-1/2">
