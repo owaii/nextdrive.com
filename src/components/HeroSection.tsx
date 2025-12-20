@@ -79,14 +79,14 @@ export default function HeroSection() {
       <div className="box-2 absolute top-0 left-0 w-full h-screen bg-brand-white flex items-center justify-center">
         <HeroBlock 
           title="Zapisz się w kilka kliknięć"
-          text="Rejestracja nigdy nie była prostsza! Wybierz termin, potwierdź swoje dane i gotowe – miejsce na jazdy doszkalające czeka na Ciebie."
+          text="Zapisy są teraz szybkie i wygodne! Wystarczy telefon, ustal godziny i miejsce jazd, a Twoja jazda doszkalająca czeka."
           image_src="SecondStep.png"    
         />
       </div>
       <div className="box-3 absolute top-0 left-0 w-full h-screen bg-brand-white flex items-center justify-center">
         <HeroBlock 
           title="Ciesz się profesjonalną nauką"
-          text="Doświadcz profesjonalnych instruktorów, przyjaznej atmosfery i indywidualnego podejścia. Każda lekcja przybliża Cię do pewności i bezpieczeństwa za kierownicą."
+          text="Doświadcz profesjonalizmu i przyjaznej atmosfery instruktora, który prowadzi jazdy doszkalające z indywidualnym podejściem. Każda lekcja przybliża Cię do pewności i bezpieczeństwa za kierownicą."
           image_src="ThirdStep.png"    
         />
       </div>

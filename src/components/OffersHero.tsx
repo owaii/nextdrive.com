@@ -19,7 +19,7 @@ export default function offersHero() {
           <span className="text-4xl text-txt-black font-bold tracking-wide">Programy Specjalne</span>
         </div>
 
-        <div className="w-full 2xl:w-1/2 flex flex-col sm:flex-row items-start">
+        <div className="w-full 2xl:w-1/2 flex flex-col gap-5 sm:flex-row items-start">
           {/* Offers Hero */}
           <div className="relative w-full sm:flex-1 flex justify-center">
             {/* Main Special offer Block */}
@@ -36,7 +36,7 @@ export default function offersHero() {
                 <section className="w-full flex flex-col">
                   <section className="w-full flex flex-col items-center gap-2 pb-3">
                     <span className="text-xl text-txt-black font-medium">Oferta dostępna tylko dla osoby która</span>
-                    <div className="w-9/10 flex items-center flex-wrap">
+                    <div className="w-9/10 flex items-center 2xl:justify-center flex-wrap">
                       <span className="text-sm text-txt-black font-light">✔️ Wykupiła przynajmniej 4 godziny jazd doszkalających</span>
                     </div>
                   </section>
@@ -87,7 +87,7 @@ export default function offersHero() {
                     </div>
                     
                     <span className="text-xl text-txt-black font-bold text-center">W cenę kursu wliczono:</span>
-                    <div className="w-9/10 flex items-center flex-wrap">
+                    <div className="w-9/10 flex flex-col justify-center flex-nowrap">
                       <TickText text="zajęcia teoretyczne" />
                       <TickText text="30 godzin zegarowych jazd praktycznych po obszarze egzaminowania" />
                       <TickText text="przygotowanie z zakresu pierwszej pomocy przedmedycznej" />

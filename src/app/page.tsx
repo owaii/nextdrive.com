@@ -9,6 +9,7 @@ import ContactPage from "@/components/ContactPage";
 import PricingPage from "@/components/PricingPage";
 import InfoPage from "@/components/InfoPage";
 import OffersHero from "@/components/OffersHero";
+import OpinionsPage from "@/components/OpinionsPage";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -30,6 +31,8 @@ export default function Home() {
         <ContactPage />
         
         <PricingPage />
+
+        <OpinionsPage />
 
         <Footer />
       </section>
