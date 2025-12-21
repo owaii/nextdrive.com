@@ -28,7 +28,7 @@ function PromoBlock({
     <section
       onClick={onSelect}
       className={clsx(
-        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('images/Background.png')] hover:scale-101 duration-300 cursor-pointer",
+        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/Background.png')] hover:scale-101 duration-300 cursor-pointer",
         "sm:w-3/10",
         "2xl:w-2/10 2xl:aspect-4/5"
       )}
