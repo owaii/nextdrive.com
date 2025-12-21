@@ -28,30 +28,38 @@ export default function offersHero() {
                 "border rounded-2xl"
               )}>
                 {/* Title */}
-                <div className="w-full py-4 flex items-center justify-center bg-txt-red rounded-t-2xl">
-                  <span className="text-3xl text-txt-white font-bold text-center tracking-wide">Podstawienie samochodu Automat</span>
+                <div className="w-full py-4 px-2 flex items-center justify-center bg-txt-red rounded-t-2xl">
+                  <span className="text-3xl text-txt-white font-bold text-center tracking-wide">Podstawienie samochodu na egzamin praktyczny</span>
                 </div>
 
                 {/* Main */}
                 <section className="w-full flex flex-col">
-                  <section className="w-full flex flex-col items-center gap-2 pb-3">
-                    <span className="text-xl text-txt-black font-medium">Oferta dostępna tylko dla osoby która</span>
-                    <div className="w-9/10 flex items-center 2xl:justify-center flex-wrap">
-                      <span className="text-sm text-txt-black font-light">✔️ Wykupiła przynajmniej 4 godziny jazd doszkalających</span>
-                    </div>
+                  <section className="w-full flex justify-center pb-3 px-1">
+                    <span className="text-xl text-txt-black font-medium text-center">Usługa obejmuje podstawienie samochodu z automatyczną skrzynią biegów na egzamin państwowy w WORD.</span>
                   </section>
 
                   <div className="w-full flex items-center justify-center">
                     <span className="text-xl text-txt-black font-medium tracking-widest flex items-center">...</span>
                   </div>
                   
-                  <section className="w-full flex justify-center pb-3 px-3">
-                    <span className="text-l text-txt-black font-medium text-center">Usługa obejmuje podstawienie samochodu z automatyczną skrzynią biegów na egzamin państwowy w WORD.</span>
+                  <section className="w-full flex flex-col items-center gap-2 pb-3">
+                    <span className="text-xl text-txt-black font-bold text-center">Oferta dostępna dla osób które:</span>
+                    <div className="w-9/10 flex items-center 2xl:justify-center flex-wrap">
+                      <span className="text-sm text-txt-black font-light">✔️ Wykupiły przynajmniej 4 godziny jazd doszkalających</span>
+                    </div>
                   </section>
 
-                  <div className="w-full flex justify-center">
-                    <span className="text-l text-txt-red font-light underline cursor-pointer">Dlaczego Automat?</span>
+                  <div className="w-full flex items-center justify-center">
+                    <span className="text-xl text-txt-black font-medium tracking-widest flex items-center">...</span>
                   </div>
+
+                  <section className="w-full flex justify-center pb-1">
+                    <span className="text-xl text-txt-black font-medium text-center">Dlaczego trzeba wykupić 4 godziny?</span>
+                  </section>
+
+                  <section className="w-full flex justify-center pb-3 px-3">
+                    <span className="text-l text-txt-black font-light text-center">Ponieważ trzeba zapoznać się z pojazdem, a także poznać osobę, której podstawiam samochód</span>
+                  </section>       
 
                   {/* Price */}
                   <section className="w-full flex px-2 py-4 border-t">

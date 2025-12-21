@@ -31,19 +31,18 @@ const OpinionBlock = forwardRef<HTMLElement, OpinionBlockProps>(
 export default function OpionsFunction() {
   const opinions = [
     {
-      name: "Mikołaj Dębski",
-      description:
-        "Bardzo polecam! Instruktor dokładnie tłumaczy każdy manewr i potrafi wytłumaczyć wszystko spokojnie.",
+      name: "Karolina Krakowiak",
+      description: "Instruktor wszystko tłumaczy spokojnie i na bieżąco. Dzięki temu jazdy były bez stresu i naprawdę dużo mi dały.",
       stars: "⭐⭐⭐⭐⭐",
     },
     {
-      name: "Jan Kowalski",
-      description: "Świetne jazdy! Instruktor cierpliwie tłumaczy wszystkie manewry i daje praktyczne wskazówki.",
+      name: "Marcin Kosecki",
+      description: "Bardzo fajne jazdy, dużo praktycznych wskazówek. Instruktor ma cierpliwość i potrafi dobrze wszystko wytłumaczyć.",
       stars: "⭐⭐⭐⭐⭐",
     },
     {
-      name: "Patryk Nowak",
-      description: "Dzięki indywidualnemu podejściu instruktora czuję się pewniej i bezpieczniej za kierownicą.",
+      name: "Karol Zdęba",
+      description: "Indywidualne podejście i normalna, luźna atmosfera. Po jazdach czuję się dużo pewniej za kierownicą.",
       stars: "⭐⭐⭐⭐⭐",
     },
   ];

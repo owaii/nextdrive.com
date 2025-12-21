@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import clsx from "clsx";
+import gsap from "gsap";
+import SplitText from "gsap/src/SplitText";
 
 type PromoBlockProps = {
   title: string;
@@ -14,12 +16,7 @@ type PromoBlockProps = {
   onSelect: () => void;
 };
 
-function PromoBlock({
-  title,
-  updated_price,
-  regular_price,
-  onSelect,
-}: PromoBlockProps) {
+function PromoBlock({ title, updated_price, regular_price, onSelect }: PromoBlockProps) {
   const tag_reduce = Math.floor(100 - (updated_price / regular_price) * 100);
 
   return (
@@ -72,12 +69,40 @@ export default function LandingPage() {
   const [isPromoOpen, setIsPromoOpen] = useState(false);
   const [isManualPromoOpen, setIsManualPromoOpen] = useState(false);
 
+  const titles = [
+    "Poczuj pewność siebie",
+  ]
+
+  let index = 0;
+
   useEffect(() => {
     document.body.style.overflow = isPromoOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isPromoOpen]);
+
+  /* title animation */
+  useEffect(() => {
+    gsap.registerPlugin(SplitText);
+
+    document.fonts.ready.then(() => {
+      const split = new SplitText(".title", { type: "words" });
+
+      const tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 7,
+      });
+
+      tl.from(split.words, {
+        y: 100,
+        opacity: 0,
+        ease: "circ.inOut",
+        stagger: 0.5,
+      })
+
+    })
+  }, [index]);
 
   const handlePromoSelect = () => {
     setIsPromoOpen(false);
@@ -141,8 +166,8 @@ export default function LandingPage() {
           <section className="w-full flex flex-col gap-2">
             <div className="w-full flex-1">
               <div className="w-full flex items-center justify-center text-center">
-                <span className="text-5xl 2xl:text-8xl text-txt-white font-bold tracking-wide">
-                  Poczuj pewność siebie
+                <span className="title text-5xl 2xl:text-8xl text-txt-white font-bold tracking-wide">
+                  { titles[index] }
                 </span>
               </div>
             </div>

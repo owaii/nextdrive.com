@@ -20,7 +20,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className={clsx(
-          "text-sm px-5 text-txt-black flex-1 font-light tracking-normal mx-2 my-5",
+          "text-sm px-5 text-txt-black flex-1 font-light tracking-normal mx-2 my-5 justified",
           "2xl:text-2xl"  
         )}>
           <p>Jestem instruktorem jazdy z pasją, który stawia na indywidualne podejście do każdego kursanta. Zależy mi, aby nauka była skuteczna, a przy tym przyjemna i bezstresowa.</p>
