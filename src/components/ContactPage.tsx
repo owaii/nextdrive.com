@@ -24,7 +24,7 @@ export default function ContactPage() {
       className="relative w-full h-screen bg-transparent flex items-center justify-center"
     >
       {/* Parallax background */}
-      <div className="absolute top-0 left-0 w-full h-screen bg-[url('images/ParalaxBackground1.png')] bg-cover bg-center">
+      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/nextdrive.com/images/ParalaxBackground1.png')] bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
       </div>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
               <div className="w-full flex-1 p-3 flex items-center justify-center">
                 <div className="w-10 2xl:w-15 aspect-square relative">
                   <Image
-                    src="images/PhoneIcon.png"
+                    src="/nextdrive.com/images/PhoneIcon.png"
                     alt="Phone Icon"
                     fill
                     className="object-contain"
@@ -92,7 +92,7 @@ export default function ContactPage() {
               <div className="w-full flex-1 p-3 flex items-center justify-center">
                 <div className="w-10 2xl:w-15 aspect-square relative">
                   <Image
-                    src="images/EmailIcon.png"
+                    src="/nextdrive.com/images/EmailIcon.png"
                     alt="Email Icon"
                     fill
                     className="object-contain"

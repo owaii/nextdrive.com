@@ -123,7 +123,7 @@ export default function LandingPage() {
           <div className="flex-1 h-full flex justify-start items-center">
             <div className="relative h-full aspect-square ml-2">
               <Image
-                src="images/Logo.png"
+                src="/nextdrive.com/images/Logo.png"
                 alt="Logo"
                 priority
                 fill
@@ -206,7 +206,7 @@ export default function LandingPage() {
       <div
         onClick={() => setIsPromoOpen(true)}
         className={clsx(
-          "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('images/PromoBaner.png')] cursor-pointer z-20",
+          "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/PromoBaner.png')] cursor-pointer z-20",
           "sm:w-2/5 sm:top-0 sm:left-1/2 sm:-translate-x-1/2"
         )}
       />

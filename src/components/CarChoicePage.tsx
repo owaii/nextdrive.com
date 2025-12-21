@@ -13,7 +13,7 @@ function ShowCar({ title, gearbox, image_src }: ShowCarProps) {
     <section className="w-full flex-col">
       <div className="w-full aspect-4/3 relative">
         <Image
-          src={`images/${image_src}`}
+          src={`/nextdrive.com/images/${image_src}`}
           alt={`${title} photo`}
           fill
           className="object-cover"
