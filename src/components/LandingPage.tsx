@@ -112,7 +112,7 @@ export default function LandingPage() {
   return (
     <section className="w-full h-screen relative overflow-hidden">
       {/* Background Image + Tint */}
-      <div className="absolute -inset-10 bg-cover bg-center bg-no-repeat bg-[url('images/Background.png')] filter blur-md">
+      <div className="absolute -inset-10 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/Background.png')] filter blur-md">
         <div className="absolute inset-0 w-full min-h-screen bg-[radial-gradient(circle,rgba(89,131,252,0)_0%,rgba(0,0,0,1)_100%)]"></div>
       </div>
 
