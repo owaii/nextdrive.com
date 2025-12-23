@@ -6,10 +6,6 @@ const nextConfig: NextConfig = {
   basePath: "/nextdrive.com",
   assetPrefix: "/nextdrive.com",
 
-  images: {
-    unoptimized: true,
-  },
-
   reactCompiler: true,
 };
 
