@@ -28,7 +28,7 @@ function PromoBlock({
     <section
       onClick={onSelect}
       className={clsx(
-        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/public/images/Background.png')] hover:scale-101 duration-300 cursor-pointer",
+        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/Background.png')] hover:scale-101 duration-300 cursor-pointer",
         "sm:w-3/10",
         "2xl:w-2/10 2xl:aspect-4/5"
       )}
@@ -112,7 +112,7 @@ export default function LandingPage() {
   return (
     <section className="w-full h-screen relative overflow-hidden">
       {/* Background Image + Tint */}
-      <div className="absolute -inset-10 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/public/images/Background.png')] filter blur-md">
+      <div className="absolute -inset-10 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/Background.png')] filter blur-md">
         <div className="absolute inset-0 w-full min-h-screen bg-[radial-gradient(circle,rgba(89,131,252,0)_0%,rgba(0,0,0,1)_100%)]"></div>
       </div>
 
@@ -123,7 +123,7 @@ export default function LandingPage() {
           <div className="flex-1 h-full flex justify-start items-center">
             <div className="relative h-full aspect-square ml-2">
               <Image
-                src="/nextdrive.com/public/images/Logo.png"
+                src="/nextdrive.com/images/Logo.png"
                 alt="Logo"
                 priority
                 fill
@@ -206,7 +206,7 @@ export default function LandingPage() {
       <div
         onClick={() => setIsPromoOpen(true)}
         className={clsx(
-          "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/public/images/PromoBaner.png')] cursor-pointer z-20",
+          "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('/nextdrive.com/images/PromoBaner.png')] cursor-pointer z-20",
           "sm:w-2/5 sm:top-0 sm:left-1/2 sm:-translate-x-1/2"
         )}
       />

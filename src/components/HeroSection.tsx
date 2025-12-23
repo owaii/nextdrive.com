@@ -19,7 +19,7 @@ function HeroBlock({ title, text, image_src }: HeroBlockProps) {
         <div className="flex-1 flex justify-center items-center">
           <div className="relative h-2/3 aspect-square 2xl:h-1/2">
             <Image
-              src={`/nextdrive.com/public/images/${image_src}`}
+              src={`/nextdrive.com/images/${image_src}`}
               alt="Step Icon"
               fill
               className="object-contain"

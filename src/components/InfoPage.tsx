@@ -14,7 +14,7 @@ function InfoBlock({ title, image_src }: InfoBlockProps) {
       <div className="w-full flex items-center justify-start sm:justify-center">
         <div className="w-13 2xl:w-20 aspect-square relative">
           <Image
-            src={`/nextdrive.com/public/images/${image_src}`}
+            src={`/nextdrive.com/images/${image_src}`}
             alt={title}
             fill
             className="object-contain rounded-sm"
@@ -35,7 +35,7 @@ export default function InfoPage() {
   return (
     <section className="relative w-full h-screen bg-transparent flex items-center justify-center">
       {/* Parallax background */}
-      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/nextdrive.com/public/images/ParalaxBackground3.png')] bg-cover bg-center">
+      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/nextdrive.com/images/ParalaxBackground3.png')] bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
       </div>
 
