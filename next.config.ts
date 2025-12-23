@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+
   basePath: "/nextdrive.com",
+  assetPrefix: "/nextdrive.com",
+
+  images: {
+    unoptimized: true,
+  },
+
   reactCompiler: true,
 };
 
