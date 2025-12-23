@@ -8,7 +8,7 @@ export default function AboutMe() {
       className="relative w-full h-screen bg-transparent flex items-center justify-center"
     >
       {/* Parallax background */}
-      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/nextdrive.com/images/ParalaxBackground1.png')] bg-cover bg-center">
+      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/nextdrive.com/public/images/ParalaxBackground1.png')] bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
       </div>
 

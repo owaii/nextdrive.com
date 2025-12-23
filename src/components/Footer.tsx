@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="w-full py-10 flex items-center justify-center">
       <div className="relative w-4/10 md:w-3/10 2xl:w-2/10 aspect-square">
         <Image
-          src="/nextdrive.com/images/Logo.png"
+          src="/nextdrive.com/public/images/Logo.png"
           alt="Logo"
           priority
           fill
