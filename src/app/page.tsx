@@ -17,7 +17,7 @@ export default function Home() {
     <main className="w-full min-h-screen bg-brand-black overflow-hidden">
       <section className="flex flex-col">
         <LandingPage />
-        
+
         <CarChoicePage />
 
         <AboutMe />

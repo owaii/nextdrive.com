@@ -63,9 +63,9 @@ export default function PricingPage() {
   const [selectedCar, setSelectedCar] = useState<number | null>(null);
 
   const cars = [
-    { id: 0, title: "Suzuki Swift", gearbox: "Manual", color: "Limonkowy", base_price: 110 },
-    { id: 1, title: "Opel Mokka", gearbox: "Automatic", color: "Biały", base_price: 120 },
-    { id: 2, title: "Suzuki Swift", gearbox: "Manual", color: "Pomarańczowy", base_price: 110 }
+    { id: 0, title: "Suzuki Swift", gearbox: "Manual", color: "Limonkowy", base_price: 150 },
+    { id: 1, title: "Opel Mokka", gearbox: "Automatic", color: "Biały", base_price: 160 },
+    { id: 2, title: "Suzuki Swift", gearbox: "Manual", color: "Pomarańczowy", base_price: 150 }
   ];
 
   const min = 1, max = 10;
@@ -78,8 +78,8 @@ export default function PricingPage() {
   if (selectedCarData) {
     if (selectedHours === 6 && selectedCarData.gearbox === "Automatic") priceValue = 660;
     else if (selectedHours === 6 && selectedCarData.gearbox === "Manual") priceValue = 630;
-    else if (selectedHours === 10 && selectedCarData.gearbox === "Automatic") priceValue = 1000;
-    else if (selectedHours === 10 && selectedCarData.gearbox === "Manual") priceValue = 960;
+    else if (selectedHours === 10 && selectedCarData.gearbox === "Automatic") priceValue = 1500;
+    else if (selectedHours === 10 && selectedCarData.gearbox === "Manual") priceValue = 1400;
     else {
       priceValue = carBasePrice * selectedHours;
     }
@@ -120,8 +120,8 @@ export default function PricingPage() {
 
         {/* Main */}
         <section className="w-full flex flex-col">
-          <PriceBlock title="Automat 1h" price={120}/>
-          <PriceBlock title="Manual 1h" price={110}/>
+          <PriceBlock title="Automat 1h" price={160}/>
+          <PriceBlock title="Manual 1h" price={150}/>
         </section>
 
         {/* Title 2 */}
@@ -132,14 +132,14 @@ export default function PricingPage() {
         {/* Main 2 */}
         <section className="w-full flex flex-col">
           <PriceBlock title="Automat 6h" price={660}/>
-          <PriceBlock title="Automat 10h" price={1000}/>
+          <PriceBlock title="Automat 10h" price={1500}/>
 
           <div className="w-full h-5 flex items-center justify-center">
             <span className="text-xl text-txt-black font-medium tracking-widest">...</span>
           </div>
 
           <PriceBlock title="Manual 6h" price={630}/>
-          <PriceBlock title="Manual 10h" price={960}/>
+          <PriceBlock title="Manual 10h" price={1400}/>
         </section>
 
         {/* Title */}
