@@ -76,8 +76,8 @@ export default function PricingPage() {
 
   let priceValue = 0;
   if (selectedCarData) {
-    if (selectedHours === 6 && selectedCarData.gearbox === "Automatic") priceValue = 660;
-    else if (selectedHours === 6 && selectedCarData.gearbox === "Manual") priceValue = 630;
+    if (selectedHours === 6 && selectedCarData.gearbox === "Automatic") priceValue = 900;
+    else if (selectedHours === 6 && selectedCarData.gearbox === "Manual") priceValue = 850;
     else if (selectedHours === 10 && selectedCarData.gearbox === "Automatic") priceValue = 1500;
     else if (selectedHours === 10 && selectedCarData.gearbox === "Manual") priceValue = 1400;
     else {
@@ -131,14 +131,14 @@ export default function PricingPage() {
 
         {/* Main 2 */}
         <section className="w-full flex flex-col">
-          <PriceBlock title="Automat 6h" price={660}/>
+          <PriceBlock title="Automat 6h" price={900}/>
           <PriceBlock title="Automat 10h" price={1500}/>
 
           <div className="w-full h-5 flex items-center justify-center">
             <span className="text-xl text-txt-black font-medium tracking-widest">...</span>
           </div>
 
-          <PriceBlock title="Manual 6h" price={630}/>
+          <PriceBlock title="Manual 6h" price={850}/>
           <PriceBlock title="Manual 10h" price={1400}/>
         </section>
 
