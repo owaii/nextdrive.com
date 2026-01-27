@@ -13,7 +13,8 @@ type SettingsBlockProps = {
 }
 
 function EditVariableBlock({ Vars, SetVar, Close }: { Vars?: string,  SetVar: Dispatch<SetStateAction<string>>, Close: () => void }) {
-  const [InputValue, setInputValue] = useState(Vars);
+  const [InputValue, setInputValue] = useState<string>(Vars ?? "");
+
 
   return (
     <section className="w-full h-full flex flex-col">
