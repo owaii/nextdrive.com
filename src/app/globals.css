@@ -44,4 +44,22 @@ html {
   scroll-behavior: smooth;
 }
 
+.LoginFormBackground {
+  background: hsla(203, 92%, 76%, 1);
+  background: linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(203, 92%, 76%, 1) 0%, hsla(196, 83%, 84%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8CD0FA", endColorstr="#B2E5F8", GradientType=1 );
+}
+
+.LoginButton {
+  background: linear-gradient(180deg, #fff 0%, #000 0%, #4a4a4a 100%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition: background-position 1s ease-in-out;
+}
+
+.LoginButton:hover {
+  background-position: bottom;
+}
 

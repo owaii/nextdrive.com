@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 import clsx from "clsx";
 import gsap from "gsap";
 import SplitText from "gsap/src/SplitText";
@@ -16,26 +15,23 @@ type PromoBlockProps = {
   onSelect: () => void;
 };
 
-function PromoBlock({
-  title,
-  updated_price,
-  regular_price,
-  onSelect,
-}: PromoBlockProps) {
+function PromoBlock({ title, updated_price, regular_price, onSelect }: PromoBlockProps) {
   const tag_reduce = Math.floor(100 - (updated_price / regular_price) * 100);
 
   return (
     <section
       onClick={onSelect}
       className={clsx(
-        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('/images/Background.png')] hover:scale-101 duration-300 cursor-pointer",
+        "w-8/10 aspect-2/1 flex flex-col bg-cover bg-center bg-no-repeat bg-[url('/images/PromoBlock.png')] hover:scale-101 duration-300 cursor-pointer",
         "sm:w-3/10",
         "2xl:w-2/10 2xl:aspect-4/5"
       )}
     >
       {/* Header */}
       <section className="w-full h-10 2xl:h-27 flex items-center justify-center">
-        <span className="text-2xl text-promo-secondary font-bold">{title}</span>
+        <span className="text-2xl text-promo-secondary font-bold">
+          {title}
+        </span>
       </section>
 
       {/* Main */}
@@ -69,10 +65,13 @@ function PromoBlock({
 export default function LandingPage() {
   const router = useRouter();
 
+  const [IsPromoActivated, setIsPromoActivated] = useState(false)
   const [isPromoOpen, setIsPromoOpen] = useState(false);
   const [isManualPromoOpen, setIsManualPromoOpen] = useState(false);
 
-  const titles = ["Poczuj pewność siebie"];
+  const titles = [
+    "Poczuj pewność siebie",
+  ]
 
   let index = 0;
 
@@ -100,8 +99,9 @@ export default function LandingPage() {
         opacity: 0,
         ease: "circ.inOut",
         stagger: 0.5,
-      });
-    });
+      })
+
+    })
   }, [index]);
 
   const handlePromoSelect = () => {
@@ -134,11 +134,7 @@ export default function LandingPage() {
           <div className="flex-1 h-full flex justify-end items-center">
             <section className="flex gap-3 mr-2">
               <button
-                onClick={() =>
-                  toast(
-                    "Logowanie oraz Rejestracja jest zarezerwowana tylko dla uczniów szkólki i nie została jeszcze zrobiona"
-                  )
-                }
+                onClick={() => router.push("./forms/register")}
                 className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer"
               >
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">
@@ -146,11 +142,7 @@ export default function LandingPage() {
                 </span>
               </button>
               <button
-                onClick={() =>
-                  toast(
-                    "Logowanie oraz Rejestracja jest zarezerwowana tylko dla uczniów szkólki i nie została jeszcze zrobiona"
-                  )
-                }
+                onClick={() => router.push("./forms/login")}
                 className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer"
               >
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">
@@ -167,7 +159,7 @@ export default function LandingPage() {
             <div className="w-full flex-1">
               <div className="w-full flex items-center justify-center text-center">
                 <span className="title text-5xl 2xl:text-8xl text-txt-white font-bold tracking-wide">
-                  {titles[index]}
+                  { titles[index] }
                 </span>
               </div>
             </div>
@@ -203,16 +195,18 @@ export default function LandingPage() {
       </section>
 
       {/* Promo Baner */}
-      <div
-        onClick={() => setIsPromoOpen(true)}
-        className={clsx(
-          "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('/images/PromoBaner.png')] cursor-pointer z-20",
-          "sm:w-2/5 sm:top-0 sm:left-1/2 sm:-translate-x-1/2"
-        )}
-      />
+      {IsPromoActivated && (
+        <div
+          onClick={() => setIsPromoOpen(true)}
+          className={clsx(
+            "absolute inset-0 w-full aspect-3/1 top-25 bg-cover bg-center bg-no-repeat bg-[url('/images/PromoBaner.png')] cursor-pointer z-20",
+            "sm:w-2/5 sm:top-0 sm:left-1/2 sm:-translate-x-1/2"
+          )}
+        />
+      )}
 
       {/* Promo Popup */}
-      {isPromoOpen && (
+      {isPromoOpen && IsPromoActivated && (
         <div className="absolute inset-0 w-full h-full bg-brand-black/60 flex items-center justify-center z-30">
           <section className="relative w-full h-full rounded-sm bg-brand-white flex flex-col justify-center overflow-y-auto">
             {/* Escape button */}
@@ -235,7 +229,9 @@ export default function LandingPage() {
                   "hover:scale-103"
                 )}
               >
-                <span className="text-sm 2xl:text-xl font-bold">Automat</span>
+                <span className="text-sm 2xl:text-xl font-bold">
+                  Automat
+                </span>
               </button>
               <button
                 onClick={() => setIsManualPromoOpen(true)}
@@ -247,7 +243,9 @@ export default function LandingPage() {
                   "hover:scale-103"
                 )}
               >
-                <span className="text-sm 2xl:text-xl font-bold">Manual</span>
+                <span className="text-sm 2xl:text-xl font-bold">
+                  Manual
+                </span>
               </button>
             </section>
 
@@ -255,47 +253,17 @@ export default function LandingPage() {
             <section className="w-full flex flex-col items-center gap-5 sm:flex-row sm:justify-center 2xl:justify-center 2xl:gap-10">
               {!isManualPromoOpen && (
                 <>
-                  <PromoBlock
-                    title="Co 1h"
-                    updated_price={120}
-                    regular_price={160}
-                    onSelect={handlePromoSelect}
-                  />
-                  <PromoBlock
-                    title="Przy zakupie 6h"
-                    updated_price={660}
-                    regular_price={790}
-                    onSelect={handlePromoSelect}
-                  />
-                  <PromoBlock
-                    title="Przy zakupie 10h"
-                    updated_price={1000}
-                    regular_price={1250}
-                    onSelect={handlePromoSelect}
-                  />
+                  <PromoBlock title="Co 1h" updated_price={120} regular_price={160} onSelect={handlePromoSelect} />
+                  <PromoBlock title="Przy zakupie 6h" updated_price={660} regular_price={790} onSelect={handlePromoSelect} />
+                  <PromoBlock title="Przy zakupie 10h" updated_price={1000} regular_price={1250} onSelect={handlePromoSelect} />
                 </>
               )}
 
               {isManualPromoOpen && (
                 <>
-                  <PromoBlock
-                    title="Co 1h"
-                    updated_price={110}
-                    regular_price={150}
-                    onSelect={handlePromoSelect}
-                  />
-                  <PromoBlock
-                    title="Przy zakupie 6h"
-                    updated_price={630}
-                    regular_price={825}
-                    onSelect={handlePromoSelect}
-                  />
-                  <PromoBlock
-                    title="Przy zakupie 10h"
-                    updated_price={960}
-                    regular_price={1200}
-                    onSelect={handlePromoSelect}
-                  />
+                  <PromoBlock title="Co 1h" updated_price={110} regular_price={150} onSelect={handlePromoSelect} />
+                  <PromoBlock title="Przy zakupie 6h" updated_price={630} regular_price={825} onSelect={handlePromoSelect} />
+                  <PromoBlock title="Przy zakupie 10h" updated_price={960} regular_price={1200} onSelect={handlePromoSelect} />
                 </>
               )}
             </section>

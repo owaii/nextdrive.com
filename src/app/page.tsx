@@ -1,16 +1,16 @@
 "use client"
 
 {/* Files Imports */}
-import LandingPage from "@/components/LandingPage";
-import CarChoicePage from "@/components/CarChoicePage";
-import AboutMe from "@/components/AboutMe";
-import HeroSection from "@/components/HeroSection";
-import ContactPage from "@/components/ContactPage";
-import PricingPage from "@/components/PricingPage";
-import InfoPage from "@/components/InfoPage";
-import OffersHero from "@/components/OffersHero";
-import OpinionsPage from "@/components/OpinionsPage";
-import Footer from "@/components/Footer";
+import LandingPage from "@/components/home/LandingPage";
+import CarChoicePage from "@/components/home/CarChoicePage";
+import AboutMe from "@/components/home/AboutMe";
+import HeroSection from "@/components/home/HeroSection";
+import ContactPage from "@/components/home/ContactPage";
+import PricingPage from "@/components/home/PricingPage";
+import InfoPage from "@/components/home/InfoPage";
+import OffersHero from "@/components/home/OffersHero";
+import OpinionsPage from "@/components/home/OpinionsPage";
+import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
