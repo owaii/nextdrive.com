@@ -4,11 +4,11 @@ import toast from "react-hot-toast";
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 
-function CopytTextWrapper({phone_number, text, handleEvent} : {phone_number: string, text: string, handleEvent: () => {}}) {
+function CopytTextWrapper({phone_number, text, handleEvent} : {phone_number: string, text: string, handleEvent: () => void}) {
   return (
     <div className="flex gap-2 items-center">
       <span 
-        onClick={() => handleEvent}
+        onClick={() => handleEvent()}
         className={clsx(
           "text-xl text-white font-bold",
           "relative cursor-pointer",
