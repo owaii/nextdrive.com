@@ -12,6 +12,19 @@
   --promo-primary: #cf1b1b;
   --promo-secondary: #FAFAFA;
   --promo-third: #bebebe;
+
+  --student-bg-main: #0A0A0A;
+  --student-bg-header: #1A1C1E;
+  --student-bg-content: #2A2E34;
+  --student-bg-block: #1A1C1E;
+  --student-bg-hover: #4f5250;
+  --student-txt-prim: #F0EFE5;
+  --student-btn-red-prim: #EF4444;
+  --student-btn-red-hover: #DC2626;
+  --student-btn-green-prim: #22C55E;
+  --student-btn-green-hover: #16A34A;
+  --student-icon: #FFFF;
+  --student-icon-dark: #000000;
 }
 
 @theme {

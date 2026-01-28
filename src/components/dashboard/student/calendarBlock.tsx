@@ -2,6 +2,7 @@ import DriveItem from "./driveItem";
 import CalendarDateItem from "./CalendarDateItem";
 import Image from "next/image";
 import { useState } from "react";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 type CalendarItem = {
   id: number;
@@ -40,15 +41,42 @@ function toISODate(ddmmyy: string) {
   return `20${yy}-${mm}-${dd}`;
 }
 
-
-function HourBlock({ startHour, endHour, onClick, setDateStart, setDateEnd } : {startHour: number, endHour: number, onClick: () => void, setDateStart: () => void, setDateEnd: () => void}) {
+function HourBlock({
+  startHour,
+  endHour,
+  onClick,
+  setDateStart,
+  setDateEnd,
+}: {
+  startHour: number;
+  endHour: number;
+  onClick: () => void;
+  setDateStart: () => void;
+  setDateEnd: () => void;
+}) {
   return (
-    <div onClick={() => {
-      setDateStart()
-      setDateEnd()
-      onClick()
-    }} className="w-full flex items-center justify-center bg-[#1A1C1E] rounded-xl hover:bg-[#545558] cursor-pointer hover:scale-102 duration-300">
-      <span className="text-white text-xl font-bold">{startHour}:00 - {endHour}:00</span>
+    <div
+      onClick={() => {
+        setDateStart();
+        setDateEnd();
+        onClick();
+      }}
+      className="
+        w-full flex items-center justify-center
+        bg-(--student-bg-header)/30
+        backdrop-blur-lg
+        border border-white/10
+        shadow-xl
+        rounded-xl
+        hover:bg-(--student-bg-hover)
+        cursor-pointer
+        hover:scale-102
+        duration-300
+      "
+    >
+      <span className="text-(--student-txt-prim) text-xl font-bold">
+        {startHour}:00 - {endHour}:00
+      </span>
     </div>
   );
 }
@@ -56,20 +84,18 @@ function HourBlock({ startHour, endHour, onClick, setDateStart, setDateEnd } : {
 export default function CalendarBlock({ items, setItems, CarType }: CalendarBlockProps) {
   const IsMoreThanFour = items.length > 4;
   const [mode, setMode] = useState<Mode>("list");
-  
-  // get and set for date choice
+
   const [CurrentStartDate, SetCurrentStartDate] = useState("");
   const [CurrentDateTimeStart, SetCurrentDateTimeStart] = useState("");
   const [CurrentEndDate, SetCurrentEndDate] = useState("");
   const [CurrentDateTimeEnd, SetCurrentDateTimeEnd] = useState("");
   const [CurrentCarType, SetCurrentCarType] = useState("");
 
-  // get and set for hour choice
   const [CurrentDateChosen, setCurrentDateChosen] = useState("");
   const [CurrentHourStart, setCurrentHourStart] = useState(0);
-  const [CurrentHourEnd, setCurrentHourEnd] = useState(0)
+  const [CurrentHourEnd, setCurrentHourEnd] = useState(0);
 
-  const HoursExtremes = {start: 11, end: 23};
+  const HoursExtremes = { start: 11, end: 23 };
 
   const SetCurrentDriveItems = (
     carType: string,
@@ -87,7 +113,7 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
   };
 
   const DeleteCurrentItem = (id: number) => {
-    setItems(prev => prev.filter(item => item.id !== id));
+    setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   const addToItems = (Date: string, startHour: number, EndHour: number) => {
@@ -103,157 +129,262 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
       carType: CarType,
     };
 
-    setItems(prev => [...prev, newItem]);
+    setItems((prev) => [...prev, newItem]);
   };
 
   return (
     <section className="h-full flex-2 flex flex-col">
-      <header className="bg-[#1A1C1E] rounded-t-xl p-2 cursor-pointer">
-        <div onClick={() => setMode("calendar")} className={`${mode != "calendar" ? "hover:bg-[#545558]" : ""} relative flex items-center gap-3 transition-colors duration-200 rounded-xl p-2 cursor-pointer`}>
-          <Image src="/icons/CalendarIcon.png" alt="Calendar Icon" width={40} height={40} />
-          <span className="text-white font-bold tracking-wide text-2xl">Kalendarz</span>
-          <button 
+      {/* HEADER */}
+      <header
+        className="
+          bg-(--student-bg-header)/30
+          backdrop-blur-lg
+          border border-white/10
+          shadow-xl
+          rounded-t-xl
+          p-2
+          cursor-pointer
+        "
+      >
+        <div
+          onClick={() => setMode("calendar")}
+          className={`
+            ${mode !== "calendar" ? "hover:bg-(--student-bg-hover)" : ""}
+            relative flex items-center gap-3
+            transition-colors duration-200
+            rounded-xl p-2 cursor-pointer
+          `}
+        >
+          <CalendarMonthIcon sx={{ fontSize: 40 }} className="text-(--student-icon)" />
+          <span className="text-(--student-txt-prim) font-bold tracking-wide text-2xl">
+            Kalendarz
+          </span>
+
+          <button
             onClick={(e) => {
               e.stopPropagation();
               setMode("list");
-            }} 
-            className={`${mode != "calendar" ? "hidden" : "block"} absolute right-0 top-1/2 transform -translate-y-1/2 text-2xl text-white bg-[#545558] cursor-pointer py-1 px-3 rounded-lg`}
-            > X
+            }}
+            className={`
+              ${mode !== "calendar" ? "hidden" : "block"}
+              absolute right-0 top-1/2 -translate-y-1/2
+              text-2xl
+              text-(--student-txt-prim)
+              bg-(--student-bg-hover)
+              rounded-lg
+              py-1 px-3
+              cursor-pointer
+            `}
+          >
+            X
           </button>
         </div>
       </header>
 
-      <div className="flex-3 flex w-full bg-[#2B2D31] rounded-b-xl">
-          {mode == "list" && (
-            <section className="flex-1 grid grid-cols-1 gap-2 pt-1 pb-1 px-2 place-items-center 2xl:grid-rows-4 2xl:grid-flow-col 2xl:auto-cols-fr 2xl:place-items-start">
-              {items.map((item, index) => {
-                const start = formatDateTime(item.startDate);
-                const end = formatDateTime(item.endDate);
+      {/* MAIN CONTENT */}
+      <div
+        className="
+          flex-3 flex w-full
+          bg-(--student-bg-content)/30
+          backdrop-blur-lg
+          border border-white/10
+          shadow-xl
+          rounded-b-xl
+        "
+      >
+        {mode === "list" && (
+          <section className="flex-1 grid grid-cols-1 gap-2 pt-1 pb-1 px-2 place-items-center 2xl:grid-rows-4 2xl:grid-flow-col 2xl:auto-cols-fr 2xl:place-items-start">
+            {items.map((item) => {
+              const start = formatDateTime(item.startDate);
+              const end = formatDateTime(item.endDate);
+
+              return (
+                <DriveItem
+                  key={item.id}
+                  IsMoreThanFour={IsMoreThanFour}
+                  startDate={start.dateOnly}
+                  carType={item.carType}
+                  onClick={() =>
+                    SetCurrentDriveItems(
+                      item.carType,
+                      start.dateOnly,
+                      start.timeOnly,
+                      end.dateOnly,
+                      end.timeOnly
+                    )
+                  }
+                  onDelete={() => DeleteCurrentItem(item.id)}
+                />
+              );
+            })}
+          </section>
+        )}
+
+        {mode === "view" && (
+          <div className="w-full h-full flex items-center justify-center">
+            <section
+              className="
+                w-[90%] h-[90%]
+                bg-(--student-bg-header)/30
+                backdrop-blur-lg
+                border border-white/10
+                shadow-xl
+                rounded-xl
+                flex
+              "
+            >
+              <div className="flex-1 flex items-center justify-center">
+                <Image
+                  src={
+                    CurrentCarType === "Manual"
+                      ? "/images/ManualCarType.png"
+                      : "/images/AutomaticCarType.png"
+                  }
+                  alt="CarTypeImage"
+                  width={240}
+                  height={240}
+                />
+              </div>
+
+              <section className="flex-1 flex flex-col">
+                <section className="flex-1 flex flex-col items-center justify-center gap-2">
+                  <span className="text-(--student-txt-prim) font-bold text-2xl">
+                    {CurrentStartDate}
+                  </span>
+                  <span className="text-(--student-txt-prim) font-bold text-xl">
+                    {CurrentDateTimeStart} - {CurrentDateTimeEnd}
+                  </span>
+                  <button
+                    onClick={() => setMode("list")}
+                    className="
+                      px-3 py-2
+                      bg-(--student-btn-red-prim)
+                      hover:bg-(--student-btn-red-hover)
+                      text-(--student-txt-prim)
+                      rounded-lg
+                      cursor-pointer
+                      mt-5
+                    "
+                  >
+                    Wyjdź
+                  </button>
+                </section>
+              </section>
+            </section>
+          </div>
+        )}
+
+        {mode === "calendar" && (
+          <div className="w-full h-full flex items-center justify-center">
+            <section className="w-full h-full 2xl:grid 2xl:grid-cols-3 overflow-y-auto gap-4 p-2 max-h-[240px]">
+              {Array.from({ length: 30 }).map((_, i) => {
+                const today = new Date();
+                today.setDate(today.getDate() + i);
+
+                const day = String(today.getDate()).padStart(2, "0");
+                const month = String(today.getMonth() + 1).padStart(2, "0");
+                const year = String(today.getFullYear()).slice(-2);
+                const formattedDate = `${day}-${month}-${year}`;
 
                 return (
-                  <DriveItem
-                    key={item.id}
-                    IsMoreThanFour={IsMoreThanFour}
-                    startDate={start.dateOnly}
-                    carType={item.carType}
-                    onClick={() =>
-                      SetCurrentDriveItems(
-                        item.carType,
-                        start.dateOnly,
-                        start.timeOnly,
-                        end.dateOnly,
-                        end.timeOnly
-                      )
-                    }
-                    onDelete={() => DeleteCurrentItem(item.id)}
+                  <CalendarDateItem
+                    key={i}
+                    date={formattedDate}
+                    setCurrentDateChosen={() => setCurrentDateChosen(formattedDate)}
+                    enableHourChoice={() => setMode("hourChoice")}
                   />
                 );
               })}
             </section>
-          )}
+          </div>
+        )}
 
-          {mode == "view" && (
-            <div className="w-full h-full flex items-center justify-center">
-              <section className="w-[90%] h-[90%] bg-[#1A1C1E] flex rounded-lg">
-                <div className="flex-1 flex items-center justify-center">
-                  <Image 
-                    src={ CurrentCarType === "Manual" ? "/images/ManualCarType.png" : "/images/AutomaticCarType.png"}
-                    alt="CarTypeImage"
-                    width={240}
-                    height={240}
-                  />
-                </div>
-                <section className="flex-1 flex flex-col">
-                  <section className="flex-1 flex flex-col items-center justify-center gap-2">
-                    <span className="text-white font-bold text-2xl">{ CurrentStartDate }</span>
-                    <span className="text-white font-bold text-xl">{ CurrentDateTimeStart } - { CurrentDateTimeEnd }</span>
-                    <button 
-                      onClick={() => setMode("list")}
-                      className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer mt-5"
-                    >
-                      Wyjdź
-                    </button>
-                  </section>
-                </section>
+        {mode === "hourChoice" && (
+          <div className="w-full h-full flex flex-col items-center justify-center">
+            <section className="w-full h-full 2xl:grid 2xl:grid-cols-3 2xl:grid-rows-2 overflow-y-auto gap-4 p-2 max-h-[240px]">
+              {Array.from(
+                { length: (HoursExtremes.end - HoursExtremes.start) / 2 },
+                (_, index) => {
+                  const start = HoursExtremes.start + index * 2;
+                  return (
+                    <HourBlock
+                      key={start}
+                      startHour={start}
+                      endHour={start + 2}
+                      onClick={() => setMode("accept")}
+                      setDateStart={() => setCurrentHourStart(start)}
+                      setDateEnd={() => setCurrentHourEnd(start + 2)}
+                    />
+                  );
+                }
+              )}
+            </section>
 
-              </section>
+            <div className="flex items-center justify-center w-full py-2">
+              <button
+                onClick={() => setMode("calendar")}
+                className="
+                  px-3 py-2
+                  bg-(--student-btn-red-prim)
+                  hover:bg-(--student-btn-red-hover)
+                  text-(--student-txt-prim)
+                  rounded-lg
+                  cursor-pointer
+                  mt-5
+                "
+              >
+                Wyjdź
+              </button>
             </div>
-          )}  
+          </div>
+        )}
 
-          {mode == "calendar" && (
-            <div className="w-full h-full flex items-center justify-center">
-              <section className="w-full h-full 2xl:grid 2xl:grid-cols-3 overflow-y-auto gap-4 p-2 max-h-[240px]">
-                {Array.from({ length: 30 }).map((_, i) => {
-                  const today = new Date();
-                  today.setDate(today.getDate() + i);
+        {mode === "accept" && (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+            <span className="text-(--student-txt-prim) font-bold text-3xl">
+              {CurrentDateChosen}
+            </span>
 
-                  const day = String(today.getDate()).padStart(2, "0");
-                  const month = String(today.getMonth() + 1).padStart(2, "0");
-                  const year = String(today.getFullYear()).slice(-2);
-                  const formattedDate = `${day}-${month}-${year}`;
+            <section className="text-(--student-txt-prim) font-light text-xl">
+              {CurrentHourStart}:00 - {CurrentHourEnd}:00
+            </section>
 
-                  return <CalendarDateItem key={i} date={formattedDate} setCurrentDateChosen={() => {setCurrentDateChosen(formattedDate)}} enableHourChoice={() => setMode("hourChoice")}/>;
-                })}
-              </section>
-            </div>
-          )}
+            <section className="flex gap-5">
+              <button
+                onClick={() => setMode("hourChoice")}
+                className="
+                  px-3 py-2
+                  bg-(--student-btn-red-prim)
+                  hover:bg-(--student-btn-red-hover)
+                  text-(--student-txt-prim)
+                  rounded-lg
+                  cursor-pointer
+                  mt-5
+                "
+              >
+                Wyjdź
+              </button>
 
-          {mode == "hourChoice" && (
-            <div className="w-full h-full flex flex-col items-center justify-center">
-              <section className="w-full h-full 2xl:grid 2xl:grid-cols-3 2xl:grid-rows-2 overflow-y-auto gap-4 p-2 max-h-[240px]">
-                  {Array.from(
-                    { length: (HoursExtremes.end - HoursExtremes.start) / 2 },
-                    (_, index) => {
-                      const start = HoursExtremes.start + index * 2;
-                      return (
-                        <HourBlock
-                          key={start}
-                          startHour={start}
-                          endHour={start + 2}
-                          onClick={() => setMode("accept")}
-                          setDateStart={() => setCurrentHourStart(start)}
-                          setDateEnd={() => setCurrentHourEnd(start + 2)}
-                        />
-                      );
-                    }
-                  )}
-              </section>
-              <div className="flex items-center justify-center w-full py-2">
-                <button 
-                  onClick={() => setMode("calendar")}
-                  className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer mt-5"
-                >
-                  Wyjdź
-                </button>
-              </div>
-            </div>
-          )}
-
-          {mode == "accept" && (
-            <div className="w-full h-full flex flex-col items-center justify-center gap-2">
-              <span className="text-white font-bold text-3xl">{CurrentDateChosen}</span>
-              <section className="flex text-white font-light text-xl">
-                {CurrentHourStart}:00 - {CurrentHourEnd}:00
-              </section>
-              <section className="flex gap-5">
-                <button 
-                  onClick={() => setMode("hourChoice")}
-                  className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer mt-5"
-                >
-                  Wyjdź
-                </button>
-                <button 
-                  onClick={() => {
-                    addToItems(CurrentDateChosen, CurrentHourStart, CurrentHourEnd)
-                    setMode("list")
-                  }}
-                  className="px-3 py-2 bg-green-500 hover:bg-green-700 text-white rounded-lg cursor-pointer mt-5"
-                >
-                  Zapisz
-                </button>
-              </section>
-            </div>
-          )}
+              <button
+                onClick={() => {
+                  addToItems(CurrentDateChosen, CurrentHourStart, CurrentHourEnd);
+                  setMode("list");
+                }}
+                className="
+                  px-3 py-2
+                  bg-(--student-btn-green-prim)
+                  hover:bg-(--student-btn-green-hover)
+                  text-(--student-txt-prim)
+                  rounded-lg
+                  cursor-pointer
+                  mt-5
+                "
+              >
+                Zapisz
+              </button>
+            </section>
+          </div>
+        )}
       </div>
     </section>
   );

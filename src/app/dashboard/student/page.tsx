@@ -10,6 +10,8 @@ import CountdownBlock from "@/components/dashboard/student/countdownBlock";
 
 import getNearestStartDate from "@/components/dashboard/student/getNearestDate";
 
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+
 export default function UserDashboard() {
   const user = {
     fullName: "Jan Kowalski",
@@ -43,12 +45,12 @@ export default function UserDashboard() {
   }, [calendarItems]);
 
   return (
-    <div className="bg-[#0A0A0A] h-screen w-screen overflow-x-hidden">
+    <div className="bg-cover bg-center h-screen w-screen overflow-x-hidden" style={{ backgroundImage: "url('/images/bg.png')" }}>
       <section className="w-full h-full flex flex-col">
         <header className="w-full h-12 bg-[#1A1C1E] flex justify-end">
-          <button onClick={() => {window.location.href = "/"}} className="text-white text-xl font-bold mr-5 cursor-pointer">
-            Wyloguj
-          </button>
+          <div onClick={() => {window.location.href = "/"}} className="h-full flex items-center justify-center cursor-pointer">
+            <PowerSettingsNewIcon  sx={{ fontSize: 40 }} className="text-red-600" />
+          </div>
         </header> 
         <main className="w-full flex-1 flex items-center justify-center">
           <section className="w-[95%] lg:w-[75%] 2xl:w-[50%] h-[90vh] flex flex-col gap-7">

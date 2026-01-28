@@ -28,11 +28,9 @@ export default function Home() {
 
         <OffersHero />
 
-        <ContactPage />
+        <OpinionsPage />
         
         <PricingPage />
-
-        <OpinionsPage />
 
         <Footer />
       </section>

@@ -1,6 +1,9 @@
-import Image from "next/image";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LockIcon from '@mui/icons-material/Lock';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MailIcon from '@mui/icons-material/Mail';
 
 type SettingsBlockProps = {
   Close: () => void,
@@ -55,12 +58,23 @@ function SettingsChoiceBlock({ onClickFunction, text, iconSrc }: { onClickFuncti
       onClick={onClickFunction}
       className="w-full h-full px-3 py-1 bg-[#1A1C1E] rounded-xl cursor-pointer hover:bg-[#545558] flex flex-col items-center justify-center"  
     >
-      <Image
-        src={`/icons/${iconSrc}.png`}
-        alt={`${text} Icon`}
-        width={50}
-        height={50}
-      />
+      
+      {iconSrc == "NameIcon" && (
+        <AccountCircleIcon sx={{ fontSize: 50 }} className="text-(--student-icon)" />
+      )}
+
+      {iconSrc == "MailIcon" && (
+        <MailIcon sx={{ fontSize: 50 }} className="text-(--student-icon)" />
+      )}
+
+      {iconSrc == "PasswordIcon" && (
+        <LockIcon sx={{ fontSize: 50 }} className="text-(--student-icon)" />
+      )}
+
+      {iconSrc == "ExitIcon" && (
+        <ExitToAppIcon sx={{ fontSize: 50 }} className="text-(--student-icon)" />
+      )}
+      
       <span className="text-white font-semibold mt-2">{text}</span>
     </button>    
   );

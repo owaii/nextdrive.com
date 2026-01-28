@@ -1,6 +1,6 @@
-import Image from "next/image";
 import clsx from "clsx";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 type DriveItemProps = {
   startDate: string;
@@ -15,17 +15,12 @@ export default function DriveItem({ IsMoreThanFour, startDate, carType, onClick,
     <div
       onClick={onClick}
       className={clsx(
-        "flex h-13 bg-[#1A1C1E] rounded-xl hover:scale-[1.02] transition-transform duration-150 cursor-pointer",
+        "flex h-13 bg-(--student-bg-block) rounded-xl hover:scale-[1.02] transition-transform duration-150 cursor-pointer",
         IsMoreThanFour ? "2xl:w-full" : "2xl:w-1/2"
       )}
     >
-      <div className="flex-1 h-full aspect-16/15 relative">
-        <Image
-          src="/icons/CarIcon.png"
-          alt="Car Icon"
-          fill
-          className="object-contain p-1"
-        />
+      <div className="flex-1 h-full aspect-16/15 relative flex items-center justify-center">
+        <DirectionsCarIcon sx={{ fontSize: 45 }} className="text-(--student-icon)" />
       </div>
 
       <section className="flex flex-3 flex-col justify-center">
@@ -42,7 +37,7 @@ export default function DriveItem({ IsMoreThanFour, startDate, carType, onClick,
             onDelete();
           }}
         >
-          <DeleteIcon fontSize="large" className="hover:text-red-600 cursor-pointer"/>
+          <DeleteIcon fontSize="large" className="hover:text-(--student-btn-red-hover) text-(--student-icon) cursor-pointer"/>
         </button>
       </section>
     </div>

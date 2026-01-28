@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 type CalendarDateItemProps = {
   date: string;
@@ -14,13 +14,7 @@ export default function CalendarDateItem({ date, setCurrentDateChosen, enableHou
         enableHourChoice();
       }}
       className="w-full h-full rounded-xl bg-[#1A1C1E] flex flex-col items-center justify-center p-2 hover:bg-[#545558] cursor-pointer hover:scale-102 duration-300">
-      <Image
-        src="/icons/CalendarIcon.png"
-        alt="Calendar Icon"
-        width={60}
-        height={60}
-        className="mb-2"
-      />
+      <CalendarMonthIcon sx={{ fontSize: 60 }} className="text-white" />
       <span className="text-white font-bold text-xl">{date}</span>
     </div>
   );
