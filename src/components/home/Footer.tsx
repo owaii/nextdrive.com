@@ -10,13 +10,13 @@ function CopytTextWrapper({phone_number, text, handleEvent} : {phone_number: str
       <span 
         onClick={() => handleEvent()}
         className={clsx(
-          "text-xl text-white font-bold",
+          "text-sm text-white font-bold",
           "relative cursor-pointer",
           "after:content-[''] after:absolute after:left-0 after:bottom-0",
           "after:w-0 after:h-0.5 after:bg-white",
           "after:transition-all after:duration-300",
           "hover:after:w-full",
-          "2xl:text-lg"
+          "lg:text-lg"
       )}>
         { phone_number }
       </span>
@@ -43,9 +43,11 @@ export default function Footer() {
   };
 
   return (
-    <div className="w-full py-10 flex items-center justify-center gap-40">
-      <section className="flex flex-col items-start gap-4">
-        <span className="text-5xl font-extrabold text-white">Kontakt:</span>
+    <div className="w-full py-10 flex lg:flex-row flex-col items-center justify-center lg:gap-40 gap-5">
+      <section className="flex flex-col items-start gap-4 lg:px-0 px-5">
+        <div className="w-full flex lg:justify-start justify-center">
+          <span className="text-4xl lg:text-5xl font-extrabold text-white">Kontakt</span>
+        </div>
         <section className="flex gap-3">
           <div className="flex items-center justify-center">
             <CallIcon sx={{ fontSize: 40 }} className="text-white" />

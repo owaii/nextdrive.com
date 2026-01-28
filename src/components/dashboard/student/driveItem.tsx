@@ -15,7 +15,7 @@ export default function DriveItem({ IsMoreThanFour, startDate, carType, onClick,
     <div
       onClick={onClick}
       className={clsx(
-        "flex h-13 bg-(--student-bg-block) rounded-xl hover:scale-[1.02] transition-transform duration-150 cursor-pointer",
+        "w-full flex h-13 bg-(--student-bg-block) rounded-xl hover:scale-[1.02] transition-transform duration-150 cursor-pointer",
         IsMoreThanFour ? "2xl:w-full" : "2xl:w-1/2"
       )}
     >

@@ -54,11 +54,11 @@ export default function SettingsBlock({ FullNameVal, MailVal, PasswordVal, SetFu
           />
         ) : (
           <>
-            <button onClick={openSettings} className="w-10/11 flex-1 bg-(--student-bg-block) rounded-xl flex flex-col hover:cursor-pointer hover:bg-[#545558] lg:p-0 pt-5">
-              <div className="w-full h-2/3 flex justify-center items-end">
+            <button onClick={openSettings} className="w-10/11 flex-1 bg-(--student-bg-block) rounded-xl flex flex-col hover:cursor-pointer hover:bg-[#545558] lg:pb-2 lg:p-0 pt-5">
+              <div className="w-full flex-1 flex justify-center items-end">
                 <AccountCircleIcon sx={{ fontSize: 90 }} className="text-white" />
               </div>
-              <div className="w-full h-1/3 flex items-start justify-center">
+              <div className="w-full flex items-start justify-center">
                 <span className="text-white font-bold">Zarządzaj profilem</span>
               </div>
             </button>
