@@ -68,7 +68,7 @@ export default function SignupForm() {
           </Link>
 
           <Link
-            href="/forms/login"
+            href="/login"
             className="hover:underline cursor-pointer"
           >
             {"Logowanie >"}

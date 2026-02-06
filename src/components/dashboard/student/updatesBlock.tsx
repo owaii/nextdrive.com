@@ -143,7 +143,7 @@ export default function UpdatesBlock() {
           gap-2
           overflow-y-auto
           pt-1
-          max-h-[272px]
+          max-h-[204px]
         "
       >
         {hasUpdates ? (

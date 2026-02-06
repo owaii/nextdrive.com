@@ -1,7 +1,7 @@
 import DriveItem from "./driveItem";
 import CalendarDateItem from "./CalendarDateItem";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 type CalendarItem = {
@@ -45,7 +45,8 @@ function HourBlock({ startHour, endHour, onClick, setDateStart, setDateEnd }: { 
 }
 
 export default function CalendarBlock({ items, setItems, CarType }: CalendarBlockProps) {
-  const IsMoreThanFour = items.length > 4;
+  const [displayItems, setDisplayItems] = useState<CalendarItem[]>([]);
+  const IsMoreThanFour = displayItems.length > 3;
   const [mode, setMode] = useState<Mode>("list");
 
   const [CurrentStartDate, SetCurrentStartDate] = useState("");
@@ -78,6 +79,20 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
     setItems((prev) => [...prev, newItem]);
   };
 
+  useEffect(() => {
+    const currentDate = new Date();
+
+    const refreshedItems = items
+      .filter(item => new Date(item.startDate) >= currentDate)
+      .sort(
+        (a, b) =>
+          new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+      )
+      .slice(0, 6);
+
+    setDisplayItems(refreshedItems);
+  }, [items]);
+
   return (
     <section className="h-full flex-2 flex flex-col">
       {/* HEADER */}
@@ -96,8 +111,8 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
       {/* MAIN CONTENT */}
       <div className="flex-3 flex w-full bg-(--student-bg-content)/30 backdrop-blur-lg border border-white/10 shadow-xl rounded-b-xl">
         {mode === "list" && (
-          <section className="flex-1 grid grid-cols-1 gap-2 pt-1 pb-1 px-2 place-items-center lg:grid-rows-4 lg:grid-flow-col lg:auto-cols-fr lg:place-items-start">
-            {items.map((item) => {
+          <section className="flex-1 grid grid-cols-1 gap-2 pt-1 pb-1 px-2 place-items-center lg:grid-rows-3 lg:grid-flow-col lg:auto-cols-fr lg:place-items-start">
+            {displayItems.map((item) => {
               const start = formatDateTime(item.startDate);
               const end = formatDateTime(item.endDate);
               return <DriveItem key={item.id} IsMoreThanFour={IsMoreThanFour} startDate={start.dateOnly} carType={item.carType} onClick={() => SetCurrentDriveItems(item.carType, start.dateOnly, start.timeOnly, end.dateOnly, end.timeOnly)} onDelete={() => DeleteCurrentItem(item.id)} />;
@@ -107,9 +122,9 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
         {mode === "view" && (
           <div className="w-full h-full flex items-center justify-center">
-            <section className="w-[90%] h-[90%] bg-(--student-bg-header)/30 backdrop-blur-lg border border-white/10 shadow-xl rounded-xl flex lg:flex-row flex-col">
+            <section className="w-[90%] h-[90%] bg-(--student-bg-header)/30 backdrop-blur-lg border border-white/10 shadow-xl rounded-xl flex lg:flex-row flex-col  max-h-[204px]">
               <div className="flex-1 flex items-center justify-center">
-                <Image src={CurrentCarType === "Manual" ? "/images/ManualCarType.png" : "/images/AutomaticCarType.png"} alt="CarTypeImage" width={240} height={240} />
+                <Image src={CurrentCarType === "Manual" ? "/images/ManualCarType.png" : "/images/AutomaticCarType.png"} alt="CarTypeImage" width={180} height={180} />
               </div>
               <section className="flex-1 flex flex-col">
                 <section className="flex-1 flex flex-col items-center justify-center gap-2">
@@ -124,10 +139,10 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
         {mode === "calendar" && (
           <div className="w-full h-full flex items-center justify-center">
-            <section className="w-full h-full grid grid-cols-2 lg:grid lg:grid-cols-3 overflow-y-auto gap-4 p-2 max-h-[240px]">
+            <section className="w-full h-full grid grid-cols-2 lg:grid lg:grid-cols-3 overflow-y-auto gap-4 p-2 max-h-[204px]">
               {Array.from({ length: 30 }).map((_, i) => {
                 const today = new Date();
-                today.setDate(today.getDate() + i);
+                today.setDate(today.getDate() + i + 1);
                 const day = String(today.getDate()).padStart(2, "0");
                 const month = String(today.getMonth() + 1).padStart(2, "0");
                 const year = String(today.getFullYear()).slice(-2);
@@ -140,7 +155,7 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
         {mode === "hourChoice" && (
           <div className="w-full h-full flex flex-col items-center justify-center">
-            <section className="w-full h-full grid grid-cols-2 lg:grid lg:grid-cols-3 lg:grid-rows-2 overflow-y-auto lg:gap-4 gap-2 p-2 max-h-[240px]">
+            <section className="w-full h-full grid grid-cols-2 lg:grid lg:grid-cols-3 lg:grid-rows-2 overflow-y-auto lg:gap-4 gap-2 p-2 max-h-[204px]">
               {Array.from({ length: (HoursExtremes.end - HoursExtremes.start) / 2 }, (_, index) => {
                 const start = HoursExtremes.start + index * 2;
                 return <HourBlock key={start} startHour={start} endHour={start + 2} onClick={() => setMode("accept")} setDateStart={() => setCurrentHourStart(start)} setDateEnd={() => setCurrentHourEnd(start + 2)} />;

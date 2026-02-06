@@ -27,6 +27,7 @@ export default function UserDashboard() {
       { id: 2, startDate: "2026-01-30T13:00:00", endDate: "2026-01-30T15:00:00", carType: "Manual" },
       { id: 3, startDate: "2026-01-31T13:00:00", endDate: "2026-01-31T15:00:00", carType: "Manual" },
       { id: 4, startDate: "2026-02-01T13:00:00", endDate: "2026-02-01T15:00:00", carType: "Manual" },
+      { id: 5, startDate: "2026-02-07T13:00:00", endDate: "2026-02-07T15:00:00", carType: "Manual" },
     ],
   };
 
@@ -46,15 +47,12 @@ export default function UserDashboard() {
 
   return (
     <div className="bg-cover bg-center h-screen w-screen overflow-x-hidden" style={{ backgroundImage: "url('/images/bg.png')" }}>
-      <section className="w-full h-full flex flex-col">
-        <header className="w-full h-12 bg-[#1A1C1E] flex justify-end">
-          <div onClick={() => {window.location.href = "/"}} className="h-full flex items-center justify-center cursor-pointer">
-            <PowerSettingsNewIcon  sx={{ fontSize: 40 }} className="text-red-600" />
-          </div>
-        </header> 
+      <section className="relative w-full h-full flex flex-col">
+        <div onClick={() => window.location.href = "/"} className="absolute top-4 right-4 flex items-center justify-center bg-[--student-bg-block]/70 backdrop-blur-lg border border-white/10 shadow-xl rounded-full p-1 hover:cursor-pointer hover:bg-[--student-bg-block]/90 transition-colors duration-200 rounded-circle">
+          <PowerSettingsNewIcon sx={{ fontSize: 40 }} className="text-red-600" />
+        </div>
         <main className="w-full flex-1 flex items-center justify-center">
-          <section className="w-[95%] lg:w-[75%] 2xl:w-[50%] h-[90vh] flex flex-col gap-7">
-            
+          <section className="w-[95%] lg:w-[75%] 2xl:w-[50%] lg:h-[900px] 2xl:1080 flex flex-col gap-7">
             {/* Row 1 */}
             <section className="w-full flex-1 flex lg:flex-row flex-col gap-4">
               <UserProfileBlock FullName={FullNameVal} Mail={MailVal} ImgSrc={ProfilePicVal}/>

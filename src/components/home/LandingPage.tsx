@@ -134,7 +134,7 @@ export default function LandingPage() {
           <div className="flex-1 h-full flex justify-end items-center">
             <section className="flex gap-3 mr-2">
               <button
-                onClick={() => router.push("./forms/register")}
+                onClick={() => router.push("./register")}
                 className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer"
               >
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">
@@ -142,7 +142,7 @@ export default function LandingPage() {
                 </span>
               </button>
               <button
-                onClick={() => router.push("./forms/login")}
+                onClick={() => router.push("./login")}
                 className="py-1 px-3 rounded-sm border border-brand-white hover:scale-102 duration-300 cursor-pointer"
               >
                 <span className="text-sm 2xl:text-xl text-txt-white font-bold">

@@ -25,8 +25,8 @@ export default function LoginForm() {
   }, []);
 
   const CheckCredentials = (MailVal: string, PasswordVal: string) => {
-    MailVal === "admin" && PasswordVal === "123" ? window.location.href = "/dashboard/admin" : SetIsCorrectValue(false);
-    MailVal === "user" && PasswordVal === "123" ? window.location.href = "/dashboard/student" : SetIsCorrectValue(false);
+    MailVal === "admin" && PasswordVal === "123" ? window.location.href = "/admin/dashboard" : SetIsCorrectValue(false);
+    MailVal === "user" && PasswordVal === "123" ? window.location.href = "student/dashboard" : SetIsCorrectValue(false);
   }
 
   return (
@@ -42,7 +42,7 @@ export default function LoginForm() {
           </Link>
 
           <Link
-            href="/forms/register"
+            href="/register"
             className="hover:underline cursor-pointer"
           >
             {"Rejestracja >"}
