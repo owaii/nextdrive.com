@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import UserProfileBlock from "@/components/dashboard/student/userProfileBlock";
 import ProgressBarBlock from "@/components/dashboard/student/progressBlock";
 import CalendarBlock from "@/components/dashboard/student/calendarBlock";
@@ -13,42 +14,67 @@ import getNearestStartDate from "@/components/dashboard/student/getNearestDate";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 export default function UserDashboard() {
-  const user = {
-    fullName: "Jan Kowalski",
-    mail: "jan.kowalski@example.com",
-    password: "JanaNieMa123",
-    carType: "Manual",
-    profilePic: "",
-    currH: 18.0,
-    totalH: 30.0,
-    calendar: [
-      { id: 0, startDate: "2026-01-27T13:00:00", endDate: "2026-01-27T15:00:00", carType: "Manual" },
-      { id: 1, startDate: "2026-01-29T13:00:00", endDate: "2026-01-29T15:00:00", carType: "Manual" },
-      { id: 2, startDate: "2026-01-30T13:00:00", endDate: "2026-01-30T15:00:00", carType: "Manual" },
-      { id: 3, startDate: "2026-01-31T13:00:00", endDate: "2026-01-31T15:00:00", carType: "Manual" },
-      { id: 4, startDate: "2026-02-01T13:00:00", endDate: "2026-02-01T15:00:00", carType: "Manual" },
-      { id: 5, startDate: "2026-02-07T13:00:00", endDate: "2026-02-07T15:00:00", carType: "Manual" },
-    ],
-  };
+  const [user, setUser] = useState<any>(null);
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  const [FullNameVal, SetFullNameVal] = useState(user.fullName);
-  const [MailVal, SetMailVal] = useState(user.mail);
-  const [PasswordVal, SetPasswordVal] = useState(user.password);
-  const [ProfilePicVal, SetProfilePicVal] = useState(user.profilePic);
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const res = await fetch("/api/user/root");
+        const data = await res.json();
 
-  const [calendarItems, setCalendarItems] = useState(user.calendar);
-  
+        if (res.ok) {
+          setUser(data);
+        } else {
+          console.error(data.error);
+        }
+      } catch (err) {
+        console.error("Failed to fetch user:", err);
+      }
+    }
+
+    fetchUser();
+  }, []);
+
+  const [FullNameVal, SetFullNameVal] = useState("");
+  const [MailVal, SetMailVal] = useState("");
+  const [PasswordVal, SetPasswordVal] = useState("");
+  const [ProfilePicVal, SetProfilePicVal] = useState("");
+  const [calendarItems, setCalendarItems] = useState<any[]>([]);
   const [nearestDate, setNearestDay] = useState<Date | null>(null);
 
   useEffect(() => {
+    if (!user) return;
+
+    SetFullNameVal(user.fullName);
+    SetMailVal(user.mail);
+    SetPasswordVal(user.password);
+    SetProfilePicVal(user.profilePic || "");
+    setCalendarItems(user.calendar || []);
+  }, [user]);
+
+  useEffect(() => {
+    if (!calendarItems.length) return;
     const nearest = getNearestStartDate(calendarItems);
     setNearestDay(nearest);
   }, [calendarItems]);
 
+  if (!user) {
+    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  }
+
+  async function handleLogout() {
+    setLoading(true);
+    await fetch("/api/auth/logout", { method: "POST" });
+    setLoading(false);
+    router.push("/login");
+  }
+
   return (
     <div className="bg-cover bg-center h-screen w-screen overflow-x-hidden" style={{ backgroundImage: "url('/images/bg.png')" }}>
       <section className="relative w-full h-full flex flex-col">
-        <div onClick={() => window.location.href = "/"} className="absolute top-4 right-4 flex items-center justify-center bg-[--student-bg-block]/70 backdrop-blur-lg border border-white/10 shadow-xl rounded-full p-1 hover:cursor-pointer hover:bg-[--student-bg-block]/90 transition-colors duration-200 rounded-circle">
+        <div onClick={handleLogout} className="absolute top-4 right-4 flex items-center justify-center bg-[--student-bg-block]/70 backdrop-blur-lg border border-white/10 shadow-xl rounded-full p-1 hover:cursor-pointer hover:bg-[--student-bg-block]/90 transition-colors duration-200 rounded-circle">
           <PowerSettingsNewIcon sx={{ fontSize: 40 }} className="text-red-600" />
         </div>
         <main className="w-full flex-1 flex items-center justify-center">

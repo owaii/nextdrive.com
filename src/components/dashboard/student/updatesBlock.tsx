@@ -97,7 +97,7 @@ function InfoUpdate({ text, infoText }: { text: string; infoText: string }) {
 }
 
 export default function UpdatesBlock() {
-  const hasUpdates = true; // toggle this boolean
+  const hasUpdates = false; // toggle this boolean
 
   return (
     <section className="h-full flex-1 flex flex-col">

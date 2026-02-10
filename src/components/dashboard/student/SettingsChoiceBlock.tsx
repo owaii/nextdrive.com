@@ -15,9 +15,31 @@ type SettingsBlockProps = {
   SetPasswordVal: Dispatch<SetStateAction<string>>,
 }
 
-function EditVariableBlock({ Vars, SetVar, Close }: { Vars?: string,  SetVar: Dispatch<SetStateAction<string>>, Close: () => void }) {
+function EditVariableBlock({ Vars, SetVar, Close, fieldName }: { Vars?: string, SetVar: Dispatch<SetStateAction<string>>, Close: () => void, fieldName: "fullName" | "mail" | "password"}) {
   const [InputValue, setInputValue] = useState<string>(Vars ?? "");
 
+  const handleSave = async () => {
+    try {
+      const body: any = { [fieldName]: InputValue };
+
+      const res = await fetch("/api/user/update", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        SetVar(InputValue);
+        Close();
+      } else {
+        alert(data.error || "Update failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Update failed");
+    }
+  };
 
   return (
     <section className="w-full h-full flex flex-col">
@@ -31,26 +53,17 @@ function EditVariableBlock({ Vars, SetVar, Close }: { Vars?: string,  SetVar: Di
         />
       </section>
       <section className="w-full flex justify-center gap-5 py-5">
-        <button 
-          onClick={Close}
-          className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer"
-        >
+        <button onClick={Close} className="px-3 py-2 bg-red-500 hover:bg-red-700 text-white rounded-lg cursor-pointer">
           Wyjdź
         </button>
-
-        <button 
-          onClick={() => {
-            SetVar(InputValue)
-            Close();
-          }}
-          className="px-3 py-2 bg-green-500 hover:bg-green-700 text-white rounded-lg cursor-pointer"
-        >
+        <button onClick={handleSave} className="px-3 py-2 bg-green-500 hover:bg-green-700 text-white rounded-lg cursor-pointer">
           Zapisz
         </button>
       </section>
     </section>
   );
 }
+
 
 function SettingsChoiceBlock({ onClickFunction, text, iconSrc }: { onClickFunction: () => void, text: string, iconSrc: string }) {
   return (
@@ -88,15 +101,30 @@ export default function MainSettingsBlock({ Close, FullNameVal, MailVal, Passwor
   return (
     <>
     {isEditingMail && (
-      <EditVariableBlock Vars={MailVal} SetVar={SetMailVal} Close={() => setIsEditingMail(false)}/>
+      <EditVariableBlock
+        Vars={MailVal}
+        SetVar={SetMailVal}
+        Close={() => setIsEditingMail(false)}
+        fieldName="mail"
+      />
     )}
 
     {isEditingFullName && (
-      <EditVariableBlock Vars={FullNameVal} SetVar={SetFullNameVal} Close={() => setIsEditingFullName(false)}/>
+      <EditVariableBlock
+        Vars={FullNameVal}
+        SetVar={SetFullNameVal}
+        Close={() => setIsEditingFullName(false)}
+        fieldName="fullName"
+      />
     )}
 
     {isEditingPassword && (
-      <EditVariableBlock Vars={PasswordVal} SetVar={SetPasswordVal} Close={() => setIsEditingPassword(false)}/>
+      <EditVariableBlock
+        Vars={""}
+        SetVar={SetPasswordVal}
+        Close={() => setIsEditingPassword(false)}
+        fieldName="password"
+      />
     )}
 
     {!isEditingMail && !isEditingFullName && !isEditingPassword && (

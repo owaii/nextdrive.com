@@ -60,6 +60,8 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
   const HoursExtremes = { start: 11, end: 23 };
 
+  console.log(displayItems);
+
   const SetCurrentDriveItems = (carType: string, startDate: string, startDateTime: string, endDate: string, endDateTime: string) => {
     SetCurrentCarType(carType);
     SetCurrentStartDate(startDate);
@@ -69,20 +71,61 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
     setMode("view");
   };
 
-  const DeleteCurrentItem = (id: number) => setItems((prev) => prev.filter((item) => item.id !== id));
+  const DeleteCurrentItem = async (id: number) => {
+    try {
+      await fetch("/api/calendar/delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
 
-  const addToItems = (Date: string, startHour: number, EndHour: number) => {
-    const date = toISODate(Date);
-    const startDateVal = `${date}T${startHour.toString().padStart(2, "0")}:00:00`;
-    const endDateVal = `${date}T${EndHour.toString().padStart(2, "0")}:00:00`;
-    const newItem = { id: items.length, startDate: startDateVal, endDate: endDateVal, carType: CarType };
-    setItems((prev) => [...prev, newItem]);
+      setItems((prev) =>
+        prev.filter((item) => item.id !== id)
+      );
+
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  const addToItems = async (Date: string, startHour: number, EndHour: number) => {
+    const date = toISODate(Date);
+
+    const startDateVal =
+      `${date}T${startHour.toString().padStart(2, "0")}:00:00`;
+
+    const endDateVal =
+      `${date}T${EndHour.toString().padStart(2, "0")}:00:00`;
+
+    try {
+      const res = await fetch("/api/calendar/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          startDate: startDateVal,
+          endDate: endDateVal,
+        }),
+      });
+
+      const newItem = await res.json();
+
+      if (!res.ok) {
+        alert(newItem.error);
+        return;
+      }
+
+      setItems((prev) => [...prev, newItem]);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
   useEffect(() => {
     const currentDate = new Date();
 
-    const refreshedItems = items
+    const refreshedItems = (items ?? [])
       .filter(item => new Date(item.startDate) >= currentDate)
       .sort(
         (a, b) =>
@@ -92,6 +135,20 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
     setDisplayItems(refreshedItems);
   }, [items]);
+
+  useEffect(() => {
+    async function fetchCalendar() {
+      try {
+        const res = await fetch("/api/calendar");
+        const data = await res.json();
+        setItems(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error("Failed to fetch calendar", err);
+      }
+    }
+
+    fetchCalendar();
+  }, [setItems]);
 
   return (
     <section className="h-full flex-2 flex flex-col">
