@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
   // Create JWT
   const token = jwt.sign(
-    { id: user.id },
+    { id: user.id, role: user.role }, // include role
     SECRET,
     { expiresIn: TOKEN_EXPIRES_IN }
   );
@@ -41,6 +41,7 @@ export async function POST(req: Request) {
       success: true,
       user: {
         id: user.id,
+        role: user.role,
       },
     }),
     {

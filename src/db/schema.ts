@@ -9,7 +9,8 @@ export const usersTable = pgTable("users", {
   total_hours: integer().notNull().default(30),
   current_hours: integer().notNull().default(0),
   car_type: varchar({ length: 50 }).notNull(),
-  
+  place: varchar({ length: 255 }).notNull().default("Bielany"),
+  role: varchar({ length: 20 }).notNull().default("user"),
 });
 
 export const calendarTable = pgTable("calendar", {

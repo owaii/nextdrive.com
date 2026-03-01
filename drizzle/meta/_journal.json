@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1771799192696,
+      "tag": "0000_typical_microbe",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1772370235293,
+      "tag": "0001_lowly_butterfly",
+      "breakpoints": true
+    }
+  ]
+}

@@ -41,8 +41,15 @@ export default function LoginForm() {
       });
 
       const data = await res.json();
-      if (res.ok) router.push("/user/dashboard");
-      else alert(data.error || "Login failed");
+        if (res.ok) {
+          if (data.user.role == "admin") {
+            router.push("/admin/dashboard");
+          } else {
+            router.push("/user/dashboard");
+          }
+        } else {
+          alert(data.error || "Login failed");
+        }
     } catch (err) {
       alert("Błąd logowania");
     } finally {
@@ -120,10 +127,10 @@ export default function LoginForm() {
               />
             </div>
 
-            <div className="flex justify-end mb-4">
-              <Link href={"#ForgotPassword"} className="text-sm hover:underline">
-                Zapomniałeś Hasła?
-              </Link>
+            <div onClick={() => {
+              toast.error("Aby zresertować hasło, skontaktuj się z administratorem.");
+            }} className="flex justify-end mb-4 text-sm hover:underline">
+              Zapomniałeś Hasła?
             </div>
 
             <div

@@ -23,8 +23,14 @@
   --student-btn-red-hover: #DC2626;
   --student-btn-green-prim: #22C55E;
   --student-btn-green-hover: #16A34A;
+  --student-btn-gray-prim: #a9aaa9;
+  --student-btn-gray-hover: #5c5c5c;
   --student-icon: #FFFF;
   --student-icon-dark: #000000;
+
+  --calendar-block-bg-primary: #e97d25;
+  --calendar-block-bg-primary-hover: #ee842d;
+  --calendar-block-bg-disabled: #cfbfb267;
 }
 
 @theme {

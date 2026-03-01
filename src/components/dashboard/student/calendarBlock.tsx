@@ -1,4 +1,4 @@
-import DriveItem from "./driveItem";
+ import DriveItem from "./driveItem";
 import CalendarDateItem from "./CalendarDateItem";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -60,8 +60,6 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
 
   const HoursExtremes = { start: 11, end: 23 };
 
-  console.log(displayItems);
-
   const SetCurrentDriveItems = (carType: string, startDate: string, startDateTime: string, endDate: string, endDateTime: string) => {
     SetCurrentCarType(carType);
     SetCurrentStartDate(startDate);
@@ -89,13 +87,10 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
   };
 
   const addToItems = async (Date: string, startHour: number, EndHour: number) => {
-    const date = toISODate(Date);
+  const date = toISODate(Date);
 
-    const startDateVal =
-      `${date}T${startHour.toString().padStart(2, "0")}:00:00`;
-
-    const endDateVal =
-      `${date}T${EndHour.toString().padStart(2, "0")}:00:00`;
+  const startDateVal = `${date}T${startHour.toString().padStart(2, "0")}:00:00`;
+    const endDateVal = `${date}T${EndHour.toString().padStart(2, "0")}:00:00`;
 
     try {
       const res = await fetch("/api/calendar/add", {
@@ -114,7 +109,15 @@ export default function CalendarBlock({ items, setItems, CarType }: CalendarBloc
         return;
       }
 
-      setItems((prev) => [...prev, newItem]);
+      // Map newItem to CalendarItem shape expected by frontend
+      const mappedItem: CalendarItem = {
+        id: newItem.id, // ensure it's a number
+        carType: newItem.car_type || "Unknown",
+        startDate: newItem.start_date || startDateVal,
+        endDate: newItem.end_date || endDateVal,
+      };
+
+      setItems((prev) => [...prev, mappedItem]);
 
     } catch (err) {
       console.error(err);

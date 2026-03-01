@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "place" varchar(255) DEFAULT 'Bielany' NOT NULL;
